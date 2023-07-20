@@ -1,0 +1,25 @@
+{
+  "name": "servidorexpress",
+  "version": "0.1.0",
+  "description": "serverrugnia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martincmr1/CoderBackendRugnia.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "martincmr1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martincmr1/CoderBackendRugnia/issues"
+  },
+  "homepage": "https://github.com/martincmr1/CoderBackendRugnia#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
