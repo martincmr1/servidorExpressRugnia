@@ -92,7 +92,7 @@ class ProductManager {
       }     
     }
     
-const productManager = new ProductManager('Productos.json')
+//const productManager = new ProductManager('Productos.json')
 
 
 
