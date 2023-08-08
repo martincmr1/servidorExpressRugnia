@@ -8,27 +8,26 @@ const router = Router()
 
 
 router.get('/', async (req, res) => {
-  const  {limit} = req.query
-  if (+limit < 11 ) {
-     try {
-       const products = await fs.promises.readFile(productsFilePath,'utf-8')
-       const productsFilter = JSON.parse(products)
-       const productosFiltrados = productsFilter.slice(0,req.query.limit || 10)
-      // return res.status(200).json(productosFiltrados) 
-      return res.render('home',{productosFiltrados,style:'home'})
-     } catch (error) {res.status(400).json({message :"no se encontraron los productos"})
-     }
-   } else {
-     try {
-       const products =  await fs.promises.readFile(productsFilePath,'utf-8')
-       const productsFilter = JSON.parse(products)
-//      return res.status(200).json(productsFilter);
-return res.render('home',{productsFilter,style:'home'})
-
-     } catch (error) {{res.status(500).json({message : "error en el servidor"})
-   }     
-   }    
-}})
+  const { limit } = req.query;
+  if (+limit < 11) {
+    try {
+      const products = await fs.promises.readFile(productsFilePath, 'utf-8');
+      const productsFilter = JSON.parse(products);
+      const productosFiltrados = productsFilter.slice(0, req.query.limit || 10);
+      res.render('realtimeProducts', { productosFiltrados, style: 'home' }); 
+    } catch (error) {
+      res.status(400).json({ message: "No se encontraron los productos" });
+    }
+  } else {
+    try {
+      const products = await fs.promises.readFile(productsFilePath, 'utf-8');
+      const productsFilter = JSON.parse(products);
+      res.render('realtimeProducts', { productsFilter, style: 'home' });
+    } catch (error) {
+      res.status(500).json({ message: "Error en el servidor" });
+    }
+  }
+});
 
 
 router.get('/:pid', async (req, res) => {
@@ -139,10 +138,3 @@ router.delete('/:pid', async (req, res) => {
     
 
 module.exports = router
-
-
-
-
-
-
-

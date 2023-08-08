@@ -1,0 +1,43 @@
+
+{{#each productosFiltrados}}
+<div>
+    <ul class="lista" id="lista">
+        <li>ID:<span class="color">{{this.id}}</span></li>
+        <li>nombre : {{this.title}}</li> 
+        <li>descripción : {{this.description}}</li>
+       <li>codigo: {{this.code}}</li> 
+      <li>precio:<span class="color">{{this.price}}</span></li>  
+      <li>stock:<span class="color">{{this.stock}}</span></li>  
+    <li>categoria:{{this.category}}</li>
+    <li>imagenes:{{this.thumbnails}}</li>
+    <li>Estado:{{this.status}}</li>
+    <br>
+    </ul>
+</div>
+{{/each}}
+
+
+{{#each productsFilter}}
+<div>
+    <ul class="lista" id="lista">
+        <li>ID:<span class="color">{{this.id}}</span></li>
+        <li>nombre : {{this.title}}</li> 
+        <li>descripción : {{this.description}}</li>
+       <li>codigo: {{this.code}}</li> 
+      <li>precio:<span class="color">{{this.price}}</span></li>  
+      <li>stock:<span class="color">{{this.stock}}</span></li>  
+    <li>categoria:{{this.category}}</li>
+    <li>imagenes:{{this.thumbnails}}</li>
+    <li>Estado:{{this.status}}</li>
+    <br>
+    </ul>
+</div>
+{{/each}}
+
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+
+
