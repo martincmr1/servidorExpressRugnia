@@ -8,5 +8,4 @@ const router = app => {
     app.use('/realtimeproducts',realTimeProductsController)
 }
 
-
 module.exports =router

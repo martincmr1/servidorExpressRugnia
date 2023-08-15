@@ -1,40 +1,36 @@
-
-{{#each productosFiltrados}}
-<div>
-    <ul class="lista" id="lista">
-        <li>ID:<span class="color">{{this.id}}</span></li>
-        <li>nombre : {{this.title}}</li> 
-        <li>descripción : {{this.description}}</li>
-       <li>codigo: {{this.code}}</li> 
-      <li>precio:<span class="color">{{this.price}}</span></li>  
-      <li>stock:<span class="color">{{this.stock}}</span></li>  
-    <li>categoria:{{this.category}}</li>
-    <li>imagenes:{{this.thumbnails}}</li>
-    <li>Estado:{{this.status}}</li>
-    <br>
-    </ul>
-</div>
-{{/each}}
+ <h1>LISTA DE PRODUCTOS</h1>
+<ul id="product-list"></ul>
 
 
-{{#each productsFilter}}
-<div>
-    <ul class="lista" id="lista">
-        <li>ID:<span class="color">{{this.id}}</span></li>
-        <li>nombre : {{this.title}}</li> 
-        <li>descripción : {{this.description}}</li>
-       <li>codigo: {{this.code}}</li> 
-      <li>precio:<span class="color">{{this.price}}</span></li>  
-      <li>stock:<span class="color">{{this.stock}}</span></li>  
-    <li>categoria:{{this.category}}</li>
-    <li>imagenes:{{this.thumbnails}}</li>
-    <li>Estado:{{this.status}}</li>
-    <br>
-    </ul>
-</div>
-{{/each}}
+<h2>AGREGAR PRODUCTO</h2>
+<form action="" method="post" id="productForm">
+<label for="title">Nombre</label>
+<input type="text" name="title"> <br>
+<label for="description">Descripción</label>
+<input type="text" name="description"><br>
+<label for="code">Código</label>
+<input type="text" name="code"><br>
+<label for="price">Precio</label>
+<input type="text" name="price"><br>
+<label for="stock">Stock</label>
+<input type="text" name="stock"><br>
+<label for="category">Categoria</label>
+<input type="text" name="category"><br>
+<label for="thumbnails">Imagenes</label>
+<input type="text" name="thumbnails"><br>
+<label for="status">Estado</label>
+<input type="text" name="status"><br>
+<button class="btn btn-primary" type="submit">Agregar Producto</button>
+</form>
 
 
+
+<h2>ELIMINAR PRODUCTO</h2>
+<form id="delete-form" action="/realtimeproducts/:pid" method="post">
+  <label for="id">ID del Producto a Eliminar:</label>
+  <input type="text" id="id" name="id">
+  <button class="btn btn-danger" type="submit">Eliminar Producto</button>
+</form>
 
 
 <script src="/socket.io/socket.io.js"></script>
