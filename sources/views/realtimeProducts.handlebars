@@ -3,7 +3,10 @@
 
 
 <h2>AGREGAR PRODUCTO</h2>
-<form action="" method="post" id="productForm">
+
+
+
+<form id="productForm">
 <label for="title">Nombre</label>
 <input type="text" name="title"> <br>
 <label for="description">Descripción</label>
@@ -26,7 +29,7 @@
 
 
 <h2>ELIMINAR PRODUCTO</h2>
-<form id="delete-form" action="/realtimeproducts/:pid" method="post">
+<form id="delete-form" >
   <label for="id">ID del Producto a Eliminar:</label>
   <input type="text" id="id" name="id">
   <button class="btn btn-danger" type="submit">Eliminar Producto</button>

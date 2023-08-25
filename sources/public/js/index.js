@@ -1,4 +1,5 @@
 const socket = io();
+const responseProduct = document.getElementById('responseProduct')
 
 socket.on('mensaje', data => {
  const productList = document.getElementById('product-list');
@@ -10,10 +11,45 @@ socket.on('mensaje', data => {
 });
 });
     
-document.getElementById('delete-form').addEventListener('submit', function(event) {
- const idInput = document.getElementById('id');
- const pid = idInput.value.trim();
- const form = event.currentTarget;
- form.action = `/realtimeproducts/${pid}`;
- idInput.value = ''
+const formDelete = document.getElementById('delete-form');
+formDelete.addEventListener('submit', evt => {
+    evt.preventDefault();
+
+const pid = document.getElementById('id').value;
+fetch(`/realtimeproducts/${pid}`, { 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'DELETE'
+})
+.then(response => response.json())
+.then(data => {
+       
+Swal.fire({
+        text: data.message,
+        icon: 'warning',
+        showCancelButton: false,
+        })
+})
+.catch(error => {
+console.log(error);
 });
+});
+
+
+const form =document.getElementById('productForm')
+form.addEventListener('submit',e => {
+    e.preventDefault()
+    const data = new FormData(form) 
+    const obj = {}
+    data.forEach((value,key)=> (obj[key]=value))
+fetch('/realtimeproducts',{
+   headers:{
+    'Content-Type':'application/json',
+    },
+    method:'POST',
+    body:JSON.stringify(obj),
+}).then(response => response.json())
+.then(data =>Swal.fire(data.message)) 
+})
+
