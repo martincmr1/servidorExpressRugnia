@@ -1,22 +1,74 @@
-const Products = require('./models/product.model');
+const Products = require("./models/product.model");
 
-class ProductManagerMongo{
-   async getProducts(req,res){
-    const { limit } = req.query;
+class ProductManagerMongo {
+  async getProducts(req, res) {
+    const { limit = 10, page = 1, sort, query } = req.query;
+
     try {
-      let products;
-      if (+limit < 11) {
-        products = await Products.find().limit(parseInt(limit) || 10);
-      } else {
-        products = await Products.find();
+      const pageAsNumber = parseInt(page, 10);
+
+      let filter = {};
+      if (query) {
+        filter = { category: query };
       }
-      return res.json({ message: "Productos obtenidos exitosamente", products });
+
+      let sortOption = {};
+      if (sort === "asc") {
+        sortOption = { price: 1 };
+      } else if (sort === "desc") {
+        sortOption = { price: -1 };
+      }
+
+      const products = await Products.find(filter)
+        .sort(sortOption)
+        .skip((pageAsNumber - 1) * limit)
+        .limit(Number(limit))
+        .lean();
+
+      const totalProducts = await Products.countDocuments(filter);
+
+      const totalPages = Math.ceil(totalProducts / limit);
+      const hasPrevPage = pageAsNumber > 1;
+      const hasNextPage = pageAsNumber < totalPages;
+      const prevPage = hasPrevPage ? pageAsNumber - 1 : null;
+      const nextPage = hasNextPage ? pageAsNumber + 1 : null;
+
+      const response = {
+        status: "success",
+        payload: products,
+        totalPages,
+        prevPage,
+        nextPage,
+        page: pageAsNumber,
+        hasPrevPage,
+        hasNextPage,
+      };
+
+      if (hasPrevPage) {
+        response.prevLink = `/mongo?limit=${limit}&page=${prevPage}&sort=${
+          sort || ""
+        }&query=${query || ""}`;
+      }
+
+      if (hasNextPage) {
+        response.nextLink = `/mongo?limit=${limit}&page=${nextPage}&sort=${
+          sort || ""
+        }&query=${query || ""}`;
+      }
+
+      res.render("products", {
+        products: response.payload,
+        hasNextPage,
+        nextLink: response.nextLink,
+      });
     } catch (error) {
-      res.status(500).json({ message: "Error en el servidor" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Error en el servidor" });
     }
   }
 
-async getProductById(req, res) {
+  async getProductById(req, res) {
     try {
       const { pid } = req.params;
       const product = await Products.findById(pid);
@@ -28,15 +80,34 @@ async getProductById(req, res) {
     } catch (error) {
       res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
     }
-}
-  
-async createProduct(req, res) {
+  }
+
+  async createProduct(req, res) {
     try {
-      const { title, description, code, price, stock, category, thumbnails, status } = req.body;
-      if (!title || !description || !code || !price || !stock || !category || !status) {
-        return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+      const {
+        title,
+        description,
+        code,
+        price,
+        stock,
+        category,
+        thumbnails,
+        status,
+      } = req.body;
+      if (
+        !title ||
+        !description ||
+        !code ||
+        !price ||
+        !stock ||
+        !category ||
+        !status
+      ) {
+        return res
+          .status(400)
+          .json({ message: "Todos los campos son obligatorios" });
       }
-      const thumbnailsArray = thumbnails ? thumbnails.split(',') : [];
+      const thumbnailsArray = thumbnails ? thumbnails.split(",") : [];
       const newProduct = {
         title,
         description,
@@ -47,49 +118,78 @@ async createProduct(req, res) {
         category,
         thumbnails: thumbnailsArray,
       };
-    const createdProduct = await Products.create(newProduct);
-    res.status(200).json({ message: `Producto ID: ${createdProduct._id} agregado exitosamente`, createdProduct });
+      const createdProduct = await Products.create(newProduct);
+      res.status(200).json({
+        message: `Producto ID: ${createdProduct._id} agregado exitosamente`,
+        createdProduct,
+      });
     } catch (error) {
       console.error("Error al crear el producto:", error);
       res.status(400).json({ message: "Error al crear el producto" });
     }
   }
- 
-async updateProduct(req, res) {
+
+  async updateProduct(req, res) {
     try {
-      const _id = (req.params.pid);
-      const { title, description, code, price, stock, category, thumbnails, status } = req.body;
-      if (!title || !description || !code || !price || !stock || !category || !status) {
-        return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+      const _id = req.params.pid;
+      const {
+        title,
+        description,
+        code,
+        price,
+        stock,
+        category,
+        thumbnails,
+        status,
+      } = req.body;
+      if (
+        !title ||
+        !description ||
+        !code ||
+        !price ||
+        !stock ||
+        !category ||
+        !status
+      ) {
+        return res
+          .status(400)
+          .json({ message: "Todos los campos son obligatorios" });
       }
       const updatedFields = req.body;
-      const updatedProduct = await Products.findByIdAndUpdate(_id, updatedFields, { new: true });
+      const updatedProduct = await Products.findByIdAndUpdate(
+        _id,
+        updatedFields,
+        { new: true }
+      );
       if (updatedProduct) {
-      res.status(200).json({ message: "Producto actualizado correctamente", updatedProduct });
+        res.status(200).json({
+          message: "Producto actualizado correctamente",
+          updatedProduct,
+        });
       } else {
-        res.status(404).json({ message: 'Id no encontrado' });
+        res.status(404).json({ message: "Id no encontrado" });
       }
     } catch (error) {
       res.status(500).json({ message: "error en el servidor" });
     }
-}
-   
-async deleteProduct(req, res) {
+  }
+
+  async deleteProduct(req, res) {
     try {
       const id = req.params.pid;
       const deletedProduct = await Products.findByIdAndDelete(id);
-      Products.fin
+      Products.fin;
       if (deletedProduct) {
-      res.status(200).json({ message: `Producto ID ${id} eliminado exitosamente` });
+        res
+          .status(200)
+          .json({ message: `Producto ID ${id} eliminado exitosamente` });
       } else {
         res.status(404).json({ message: "El ID no es válido" });
       }
     } catch (error) {
-    res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
+      res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
     }
   }
 }
 
-module.exports=ProductManagerMongo
-
-
+module.exports = ProductManagerMongo;

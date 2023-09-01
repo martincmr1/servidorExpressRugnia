@@ -4,6 +4,7 @@ const router = Router()
 
 const productManagerMongo= new ProductManagerMongo()
 
+
 router.get('/',productManagerMongo.getProducts.bind(productManagerMongo))
 
 router.get('/:pid',productManagerMongo.getProductById.bind(productManagerMongo))

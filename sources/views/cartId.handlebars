@@ -1,0 +1,9 @@
+<h1>Cart List</h1>
+    <p>Cart ID: {{cart.id}}</p>
+    <ul>
+        {{#each cart.products}}
+            <li>Product ID: {{this.id}}, Quantity: {{this.quantity}}</li>
+        {{/each}}
+    </ul>
+    
+<script src="/socket.io/socket.io.js"></script>
