@@ -1,38 +1,26 @@
 <h1>Products</h1>
-    <ul>
-        {{#each products}}
-            <li>
-          Id:   {{this._id}} <br> 
-       Nombre:   {{this.title}} <br> 
-      Descripción {{this.description}} <br> 
-      Código: {{this.code}} <br> 
-     Precio: {{this.price}} <br> 
-      Stock: {{this.stock}} <br> 
-      Categoria {{this.category}} <br>
-      Imágenes: {{this.thumbnails}} <br>
-      Estado: {{this.status}} <br>
+<ul>
+    {{#each products}}
+        <li>
+            Id: {{this._id}} <br> 
+            Nombre: {{this.title}} <br> 
+            Descripción: {{this.description}} <br> 
+            Código: {{this.code}} <br> 
+            Precio: {{this.price}} <br> 
+            Stock: {{this.stock}} <br> 
+            Categoria: {{this.category}} <br>
+            Imágenes: {{this.thumbnails}} <br>
+            Estado: {{this.status}} <br>
 
-               <button type="submit">Agregar al carrito</button> <br>
-            </li> <br>
-        {{/each}}
-    </ul>
-    {{#if hasNextPage}}
-        <a href="{{nextLink}}">Siguiente</a>
-    {{/if}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <form action="/cartsMongo/1692745760670/products/{{this._id}}" method="POST">
+                <button type="submit">Agregar al carrito</button>
+            </form>
+        </li>
+    {{/each}}
+</ul>
+{{#if hasNextPage}}
+    <a href="{{nextLink}}">Siguiente</a>
+{{/if}}
 
 
 

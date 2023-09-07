@@ -1,4 +1,5 @@
 const Carts = require("./models/carts.model");
+const Products = require("./models/product.model");
 
 class CartsManagerFs {
   async createCart(req, res) {
@@ -22,7 +23,7 @@ class CartsManagerFs {
   async getCartbyId(req, res) {
     try {
       const { cid } = req.params;
-      const data = await Carts.findById(cid).lean();
+      const data = await Carts.findById(cid).lean().populate("products.id");
       res.render("cartId", { cart: data });
     } catch (error) {
       res.status(500).json({ error: "error en el servidor" });
@@ -32,30 +33,29 @@ class CartsManagerFs {
   async addProductToCart(req, res) {
     try {
       const { cid, pid } = req.params;
-      const productId = parseInt(pid);
-      if (isNaN(productId)) {
-        return res.status(400).json({ error: "El id no es válido" });
+
+      const product = await Products.findById(pid);
+
+      if (!product) {
+        return res.status(404).json({ message: "Producto no encontrado" });
       }
-      if (productId <= 0) {
-        return res
-          .status(400)
-          .json({ error: "El id debe ser igual o mayor que 1" });
-      }
-      const cart = await Carts.findOne({ id: Number(cid) });
-      if (!cart) {
-        return res
-          .status(400)
-          .json({ message: "El Id del carrito no es válido" });
-      }
-      const existingProduct = cart.products.find(
-        (product) => product.id === Number(pid)
+
+      const result = await Carts.updateOne(
+        { id: Number(cid) },
+        {
+          $addToSet: {
+            products: {
+              _id: product._id,
+              quantity: 1,
+            },
+          },
+        }
       );
-      if (existingProduct) {
-        existingProduct.quantity += 1;
-      } else {
-        cart.products.push({ id: Number(pid), quantity: 1 });
+
+      if (result.nModified === 0) {
+        return res.status(200).json({ message: "Producto ya en el carrito" });
       }
-      await cart.save();
+
       res.status(200).json({
         message: `El producto con ID ${pid} fue agregado exitosamente al carrito ${cid}`,
       });
@@ -67,44 +67,26 @@ class CartsManagerFs {
   async deleteProductToCart(req, res) {
     try {
       const { cid, pid } = req.params;
-      const cartId = parseInt(cid);
-      const productId = parseInt(pid);
 
-      if (isNaN(cartId) || isNaN(productId)) {
-        return res.status(400).json({ error: "Los IDs no son válidos" });
-      }
+      const cartId = cid;
+      const productId = pid;
 
-      if (cartId <= 0 || productId <= 0) {
-        return res
-          .status(400)
-          .json({ error: "Los IDs deben ser iguales o mayores que 1" });
-      }
-
-      const cart = await Carts.findOne({ id: cartId });
-
-      if (!cart) {
-        return res
-          .status(400)
-          .json({ message: "El ID del carrito no es válido" });
-      }
-
-      const existingProductIndex = cart.products.findIndex(
-        (product) => product.id === productId
+      const result = await Carts.updateOne(
+        { _id: cartId },
+        { $pull: { products: { _id: productId } } }
       );
 
-      if (existingProductIndex === -1) {
+      if (result.nModified === 0) {
         return res
           .status(400)
-          .json({ message: "El producto no existe en el carrito" });
+          .json({ message: "El producto no se encontró en el carrito" });
       }
-
-      cart.products.splice(existingProductIndex, 1);
-      await cart.save();
 
       res.status(200).json({
         message: `El producto con ID ${productId} fue eliminado exitosamente del carrito ${cartId}`,
       });
     } catch (error) {
+      console.error(error);
       res.status(500).json({ error: "Error en el servidor" });
     }
   }
@@ -113,15 +95,16 @@ class CartsManagerFs {
     try {
       const { cid } = req.params;
       const { products } = req.body;
+      console.log(cid, products);
 
-      const cartId = parseInt(cid);
+      const cartId = cid;
 
-      if (isNaN(cartId) || !Array.isArray(products)) {
+      if (!Array.isArray(products)) {
         return res.status(400).json({ error: "Los datos no son válidos" });
       }
 
       const cart = await Carts.findOneAndUpdate(
-        { id: cartId },
+        { _id: cartId },
         { products },
         { new: true }
       );
@@ -145,26 +128,26 @@ class CartsManagerFs {
     try {
       const { cid, pid } = req.params;
       const { quantity } = req.body;
+      console.log(cid, pid, quantity);
 
-      const cartId = parseInt(cid);
-      const productId = parseInt(pid);
+      const cartId = cid;
 
-      if (isNaN(cartId) || isNaN(productId) || isNaN(quantity)) {
-        return res.status(400).json({ error: "Los datos no son válidos" });
+      if (isNaN(quantity)) {
+        return res.status(400).json({ error: "La cantidad no es válida" });
       }
 
-      const cart = await Carts.findOne({ id: cartId });
-
+      const cart = await Carts.findOne({ _id: cartId });
+      console.log(cart);
       if (!cart) {
         return res
           .status(400)
           .json({ message: "El ID del carrito no es válido" });
       }
-
       const existingProduct = cart.products.find(
-        (product) => product.id === productId
+        (product) => product._id.toString() === pid
       );
 
+      console.log(existingProduct);
       if (!existingProduct) {
         return res
           .status(400)
@@ -172,10 +155,11 @@ class CartsManagerFs {
       }
 
       existingProduct.quantity = quantity;
+
       await cart.save();
 
       res.status(200).json({
-        message: `La cantidad del producto con ID ${productId} en el carrito ${cartId} fue actualizada exitosamente`,
+        message: `La cantidad del producto con ID ${pid} en el carrito ${cartId} fue actualizada exitosamente`,
         cart,
       });
     } catch (error) {
@@ -186,15 +170,10 @@ class CartsManagerFs {
   async deleteAllProductsToCart(req, res) {
     try {
       const { cid } = req.params;
-      const cartId = parseInt(cid);
 
-      if (isNaN(cartId)) {
-        return res
-          .status(400)
-          .json({ error: "El ID del carrito no es válido" });
-      }
+      const cartId = cid;
 
-      const cart = await Carts.findOne({ id: cartId });
+      const cart = await Carts.findOne({ _id: cartId });
 
       if (!cart) {
         return res
