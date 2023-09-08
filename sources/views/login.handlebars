@@ -1,0 +1,22 @@
+<h1>formulario cookies</h1>
+
+<h2>formulario </h2>
+
+<form action="/submit" method="post">
+    <label for="name">name</label>
+    <input type="text" name="name">
+    <label for="email">email</label>
+    <input type="text" name="email">
+    <button type="submit">enviar [crear cookie]</button>
+</form>
+
+<button onclick="getCookie()"> obtener cookie</button>
+
+<script>
+    function getCookie() {
+        fetch('/getCookie')
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+    }
+</script>
