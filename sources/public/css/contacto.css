@@ -1,14 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-   }
-
-
-.color{
-    color: red;
-}
-
+/* Reset de estilos para eliminar márgenes y rellenos por defecto */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -17,7 +7,7 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: Arial, sans-serif;
     background-color: antiquewhite;
-    color:#3c3c3c;
+    color: #3c3c3c;
 }
 
 header {
@@ -86,12 +76,9 @@ p {
 
 /* Estilo del footer */
 footer {
-    background-color: #333;
+    background-color: #3c3c3c;
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    margin-top: auto;
 }
-

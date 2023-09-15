@@ -1,22 +1,36 @@
-<h1>formulario cookies</h1>
+<h2>Iniciar sesión</h2>
 
-<h2>formulario </h2>
-
-<form action="/submit" method="post">
-    <label for="name">name</label>
-    <input type="text" name="name">
-    <label for="email">email</label>
-    <input type="text" name="email">
-    <button type="submit">enviar [crear cookie]</button>
+<form id="loginForm">
+    
+    <input type="email" name="email" placeholder="Correo Electrónico"> 
+    <input type="password" name="password" placeholder="Contraseña">
+<button type="submit">Ingresar</button>
 </form>
 
-<button onclick="getCookie()"> obtener cookie</button>
+<span id="responseLogin"> </span>
 
-<script>
-    function getCookie() {
-        fetch('/getCookie')
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.log(error))
-    }
-</script>
+<script src="/js/login.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <script src="/js/login.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
