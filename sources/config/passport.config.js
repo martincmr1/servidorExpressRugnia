@@ -1,6 +1,6 @@
 const passport = require("passport");
 const local = require("passport-local");
-const GithubStrategy = require('passport-github2')
+const GithubStrategy = require("passport-github2");
 const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 
@@ -59,33 +59,33 @@ const initializePassport = () => {
     )
   );
 
-
-  passport.use('github',new GithubStrategy({
-clientID: 'Iv1.6e93eaf49923fb38',
-clientSecret:'0343fbf635e1c29fff47961e3e53003d3c0c5173',
-callbackURL:'http://localhost:8080/auth/githubcallback'
-  },async(accessToken,refreshToken,profile,done)=>{
-try {
- 
-const user= await Users.findOne({email:profile._json.email})
-if(!user){
-  const userInfo={
-    name:profile._json.name,
-    lastname:'',
-    email:profile._json.email,
-    password:''
-  }
-  const newUser=await Users.create(userInfo)
-  return done(null,newUser)
-}
-
-} catch (error) {
-  done(null,error)
-  
-}
-  }) )    
-
-
+  passport.use(
+    "github",
+    new GithubStrategy(
+      {
+        clientID: "Iv1.6e93eaf49923fb38",
+        clientSecret: "0343fbf635e1c29fff47961e3e53003d3c0c5173",
+        callbackURL: "http://localhost:8080/auth/githubcallback",
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          const user = await Users.findOne({ email: profile._json.email });
+          if (!user) {
+            const userInfo = {
+              name: profile._json.name,
+              lastname: "",
+              email: profile._json.email,
+              password: "",
+            };
+            const newUser = await Users.create(userInfo);
+            return done(null, newUser);
+          }
+        } catch (error) {
+          done(null, error);
+        }
+      }
+    )
+  );
 
   passport.serializeUser((user, done) => {
     done(null, user._id);
@@ -96,8 +96,5 @@ if(!user){
     done(null, user);
   });
 };
-
-
-
 
 module.exports = initializePassport;

@@ -5,6 +5,14 @@ class ProductManagerMongo {
     const { limit = 10, page = 1, sort, query } = req.query;
 
     try {
+      const user = req.session.user
+        ? {
+            name: req.session.user.name,
+            email: req.session.user.email,
+            role: req.session.user.role,
+          }
+        : null;
+
       const pageAsNumber = parseInt(page, 10);
 
       let filter = {};
@@ -60,6 +68,7 @@ class ProductManagerMongo {
         products: response.payload,
         hasNextPage,
         nextLink: response.nextLink,
+        user: user,
       });
     } catch (error) {
       res

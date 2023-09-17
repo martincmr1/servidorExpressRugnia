@@ -46,13 +46,19 @@ router.post(
   }
 );
 
-router.get('/github',passport.authenticate('github',{scope:['user:email']}),
-(req,res) => {}
-)
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user:email"] }),
+  (req, res) => {}
+);
 
-router.get('/githubcallback',passport.authenticate('github',{failureRedirect:'/login'}),(req,res)=>{
-  req.session.user=req.user
-  res.redirect('/profile')
-})
+router.get(
+  "/githubcallback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  (req, res) => {
+    req.session.user = req.user;
+    res.redirect("/profile");
+  }
+);
 
 module.exports = router;

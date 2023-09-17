@@ -19,7 +19,9 @@ registerForm.addEventListener('submit', async e => {
     })
 
     const newUser =await response.json()
-    responseRegister.innerText=`el nuevo usuario tiene id ${newUser.payload._id}`               
+    responseRegister.innerText=`el nuevo usuario tiene id ${newUser.payload._id}`   
+    window.location.href = '/login';
+    
     } catch (error) {
         
     }

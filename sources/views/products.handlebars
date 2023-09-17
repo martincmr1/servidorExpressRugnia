@@ -1,28 +1,81 @@
-<h1>Products</h1>
-<ul>
-    {{#each products}}
-        <li>
-            Id: {{this._id}} <br> 
-            Nombre: {{this.title}} <br> 
-            Descripción: {{this.description}} <br> 
-            Código: {{this.code}} <br> 
-            Precio: {{this.price}} <br> 
-            Stock: {{this.stock}} <br> 
-            Categoria: {{this.category}} <br>
-            Imágenes: {{this.thumbnails}} <br>
-            Estado: {{this.status}} <br>
 
-            <form action="/cartsMongo/1692745760670/products/{{this._id}}" method="POST">
-                <button type="submit">Agregar al carrito</button>
-            </form>
-        </li>
-    {{/each}}
-</ul>
-{{#if hasNextPage}}
-    <a href="{{nextLink}}">Siguiente</a>
-{{/if}}
+  <style>
+  .navbar-custom {
+    background-color: #FFD100; 
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    
+    <a class="navbar-brand" href="/mongo">Mi Tienda</a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {{#if user}}
+          <li class="nav-item">
+            <h2 class="nav-link">Bienvenido/a: {{user.email}}</h2>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Cerrar sesión</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Crea tu cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Inicia sesión</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+ <style>
+  main {
+    background-color: gray; 
+  }
+</style>
+
+<div class="container">
+      <div class="row">
+      {{#each products}}
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="{{this.thumbnails}}" alt="{{this.title}}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <p class="card-text">Precio: ${{this.price}}</p>
+              <p class="card-text">Stock: {{this.stock}}</p>
+              <p class="card-text">Categoría: {{this.category}}</p>
+              <form action="/cartsMongo/1692745760670/products/{{this._id}}" method="POST">
+  {{#if user}}
+    <button class="btn btn-primary"  type="submit">Agregar al carrito</button>
+  {{else}}
+    <button class="btn btn-primary" id="redirectoLogin" type="submit">Agregar al carrito</button>
+  {{/if}}
+</form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    {{#if hasNextPage}}
+      <a href="{{nextLink}}" class="btn btn-primary">Siguiente</a>
+    {{/if}}
+  </div>
+</main>  
+</body>
+</html>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/products.js"></script>
+
+
+

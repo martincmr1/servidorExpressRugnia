@@ -20,11 +20,16 @@ loginForm.addEventListener('submit', async e => {
         body:JSON.stringify(data),
     })
 
-    const newSession =await response.json()
-    responseLogin.innerText=` ${newSession.payload}`               
-    } catch (error) {
-        
-    }
+    const newSession = await response.json();
     
-   
-})
+    // Verificar si el inicio de sesión fue exitoso
+    if (response.ok) {
+      // Redirigir al usuario a la ruta '/mongo'
+      window.location.href = '/mongo';
+    } else {
+      responseLogin.innerText = ` ${newSession.payload}`;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
