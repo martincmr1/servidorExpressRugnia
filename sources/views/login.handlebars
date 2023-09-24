@@ -1,23 +1,23 @@
-<h2>Iniciar sesión</h2>
-
-<form id="loginForm">
-    
-    <input type="email" name="email" placeholder="Correo Electrónico"> 
-    <input type="password" name="password" placeholder="Contraseña">
-<button type="submit">Ingresar</button>
-</form>
-
-<span id="responseLogin"> </span>
-
-<div>
-    <a href="/auth/github"><button>Ingresar Con Github</button></a>
-</div>
-
-<script src="/js/login.js"></script>
-
-
-
-
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center">Iniciar sesión</h2>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                </form>
+                <span id="responseLogin" class="mt-2 d-block text-center"></span>
+                <div class="text-center mt-3">
+                    <a href="/auth/github" class="btn btn-secondary">Ingresar Con Github</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

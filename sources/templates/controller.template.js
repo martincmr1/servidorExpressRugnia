@@ -11,11 +11,15 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/profile", protectedRoute, (req, res) => {
+router.get("/api/sessions/current", protectedRoute, (req, res) => {
   const user = {
+    name:  req.user.first_name,
+    lastname:  req.user.last_name,
     email: req.session.user.email,
-    role: req.session.user.role,
+    role:  req.session.user.role,
   };
+
+  
   return res.render("profile", user);
 });
 

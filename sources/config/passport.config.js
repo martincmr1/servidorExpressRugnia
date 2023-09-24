@@ -12,17 +12,19 @@ const initializePassport = () => {
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, username, password, done) => {
-        const { name, lastname, email } = req.body;
+        const { first_name, last_name, email } = req.body;
+        const age = parseInt(req.body.age, 10);
         try {
           const user = await Users.findOne({ email: username });
           if (user) {
-            console.log("el usuario ya existe");
+           
             return done(null, false);
           }
           const userInfo = {
-            name,
-            lastname,
+            first_name,
+            last_name,
             email,
+            age,
             password: getHashedPassword(password),
           };
           const newUser = await Users.create(userInfo);
@@ -48,6 +50,7 @@ const initializePassport = () => {
 
           if (!comparePassword(password, user.password)) {
             console.log("Contraseña incorrecta");
+
             return done(null, false);
           }
 

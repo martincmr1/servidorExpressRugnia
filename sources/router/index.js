@@ -10,6 +10,7 @@ const templateController = require("../templates/controller.template");
 const {
   protectedRouteProducts,
 } = require("../middlewares/protected-route.middleware");
+//const { authToken } = require("../utils/jwt.util");
 
 const router = (app) => {
   app.use("/api/products", productsController);

@@ -1,16 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userCollection = 'user'
+const userCollection = "user";
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    lastname: String,
-    email: String,
-    age: Number,
-    password: String,
+  first_name: String,
+  last_name: String,
+  email: String,
+  age: Number,
+  password: String,
+  cart: { type: mongoose.Schema.Types.ObjectId, ref: "Cart" },
+  role: { type: String, default: "user" },
+});
 
-})
+const Users = mongoose.model(userCollection, userSchema);
 
-const Users = mongoose.model(userCollection, userSchema)
-
-module.exports = Users
+module.exports = Users;

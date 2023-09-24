@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose-paginate-v2": "^1.7.31"
+    "mongoose-paginate-v2": "^1.7.31",
+    "passport-jwt": "^4.0.1"
   }
 }
