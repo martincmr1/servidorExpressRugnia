@@ -60,19 +60,6 @@ res.json({ status: "success", payload: "Nueva sesión iniciada",token });
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.post(
   "/login",
   passport.authenticate("login", { failureRedirect: "/faillogin" }),

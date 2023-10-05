@@ -1,9 +1,9 @@
-const cartsController = require("../controllers/cartsController");
-const productsController = require("../controllers/productsController");
-const realTimeProductsController = require("../controllers/realTimeProductsController");
-const mongoProductsController = require("../controllers/mongoProductsController");
-const cartsControllerMongo = require("../controllers/cartsControllerMongo");
-const chatControllerMongo = require("../controllers/chatControllerMongo");
+const cartsController = require("../controllers/carts.controller");
+const productsController = require("../controllers/products.controllerFs");
+const realTimeProductsController = require("../controllers/products.controllerRealTime");
+const mongoProductsController = require("../controllers/products.controllerMongo");
+const cartsControllerMongo = require("../controllers/carts.controllerMongo");
+const chatControllerMongo = require("../controllers/chat.controllerMongo");
 
 const authController = require("../auth/controller.auth");
 const templateController = require("../templates/controller.template");

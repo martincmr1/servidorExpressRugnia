@@ -3,6 +3,8 @@ const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
 const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
+require('dotenv').config();
+
 
 const LocalStrategy = local.Strategy;
 
@@ -66,9 +68,9 @@ const initializePassport = () => {
     "github",
     new GithubStrategy(
       {
-        clientID: "Iv1.6e93eaf49923fb38",
-        clientSecret: "0343fbf635e1c29fff47961e3e53003d3c0c5173",
-        callbackURL: "http://localhost:8080/auth/githubcallback",
+        clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: process.env.GITHUB_CALLBACK_URL,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {

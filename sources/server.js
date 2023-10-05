@@ -10,6 +10,8 @@ const MongoStore = require("connect-mongo");
 const initializePassport = require("./config/passport.config");
 const passport = require("passport");
 
+require('dotenv').config();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(process.cwd() + "/public"));
@@ -21,12 +23,11 @@ app.use(cookieParser());
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://martincmr1:admin@cluster0.0spsbev.mongodb.net/?retryWrites=true&w=majority",
+      mongoUrl:process.env.MONGO_URL,    
       mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
       ttl: 3600,
     }),
-    secret: "codersecret",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
   })

@@ -1,3 +1,4 @@
+const { GET_PRODUCTS, GET_PRODUCTS_PAGES, GET_PRODUCTS_BY_ID, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } = require("../services/products.service");
 const Products = require("./models/product.model");
 
 class ProductManagerMongo {
@@ -12,7 +13,6 @@ class ProductManagerMongo {
             role: req.session.user.role,
           }
         : null;
-
       const pageAsNumber = parseInt(page, 10);
 
       let filter = {};
@@ -26,15 +26,15 @@ class ProductManagerMongo {
       } else if (sort === "desc") {
         sortOption = { price: -1 };
       }
-
-      const products = await Products.find(filter)
+      const products = await GET_PRODUCTS(filter)
+    //  const products = await Products.find(filter)
         .sort(sortOption)
         .skip((pageAsNumber - 1) * limit)
         .limit(Number(limit))
         .lean();
 
-      const totalProducts = await Products.countDocuments(filter);
-
+     // const totalProducts = await Products.countDocuments(filter);
+      const totalProducts = await GET_PRODUCTS_PAGES(filter)
       const totalPages = Math.ceil(totalProducts / limit);
       const hasPrevPage = pageAsNumber > 1;
       const hasNextPage = pageAsNumber < totalPages;
@@ -80,7 +80,8 @@ class ProductManagerMongo {
   async getProductById(req, res) {
     try {
       const { pid } = req.params;
-      const product = await Products.findById(pid);
+      const product = await GET_PRODUCTS_BY_ID(pid)
+      //     const product = await Products.findById(pid);
       if (product) {
         res.status(200).json(product);
       } else {
@@ -127,7 +128,7 @@ class ProductManagerMongo {
         category,
         thumbnails: thumbnailsArray,
       };
-      const createdProduct = await Products.create(newProduct);
+      const createdProduct = await CREATE_PRODUCT(newProduct);
       res.status(200).json({
         message: `Producto ID: ${createdProduct._id} agregado exitosamente`,
         createdProduct,
@@ -165,7 +166,7 @@ class ProductManagerMongo {
           .json({ message: "Todos los campos son obligatorios" });
       }
       const updatedFields = req.body;
-      const updatedProduct = await Products.findByIdAndUpdate(
+      const updatedProduct = await UPDATE_PRODUCT(
         _id,
         updatedFields,
         { new: true }
@@ -186,7 +187,7 @@ class ProductManagerMongo {
   async deleteProduct(req, res) {
     try {
       const id = req.params.pid;
-      const deletedProduct = await Products.findByIdAndDelete(id);
+      const deletedProduct = await DELETE_PRODUCT(id);
       Products.fin;
       if (deletedProduct) {
         res
