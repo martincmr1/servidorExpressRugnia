@@ -3,8 +3,9 @@ const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
 const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
-require('dotenv').config();
-
+const transport = require("../utils/nodemailer.util");
+const { UserMail } = require(".");
+require("dotenv").config();
 
 const LocalStrategy = local.Strategy;
 
@@ -19,7 +20,6 @@ const initializePassport = () => {
         try {
           const user = await Users.findOne({ email: username });
           if (user) {
-           
             return done(null, false);
           }
           const userInfo = {
@@ -29,7 +29,29 @@ const initializePassport = () => {
             age,
             password: getHashedPassword(password),
           };
+
+          try {
+            await transport.sendMail({
+              from: UserMail,
+              to: userInfo.email,
+              subject: `bienvenido, ${userInfo.first_name}`,
+              html: `
+           <div>
+           <h1> hola ${userInfo.last_name} Gracias por registrarte</h1>
+           <img src
+           </div> `,
+              attachments: [{
+                filename:'gato.jpg',
+                path:process.cwd() + '/images/gato.jpg',
+                cid:'gatito',
+              }],
+            });
+          } catch (error) {
+            console.log(error);
+          }
+
           const newUser = await Users.create(userInfo);
+
           done(null, newUser);
         } catch (error) {
           done(`error al crear el usuario:${error}`);
@@ -69,8 +91,8 @@ const initializePassport = () => {
     new GithubStrategy(
       {
         clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: process.env.GITHUB_CALLBACK_URL,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        callbackURL: process.env.GITHUB_CALLBACK_URL,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {

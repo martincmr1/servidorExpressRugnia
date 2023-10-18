@@ -1,8 +1,11 @@
 const { Server } = require("socket.io");
 const fs = require("fs");
 const path = require("path");
-const productsFilePath = path.join(process.cwd(), "./productos.json");
-const Messages = require("./Dao/models/messages.model");
+const productsFilePath = path.join(process.cwd(), "productos.json");
+
+
+
+const Messages = require("../Dao/models/messages.model");
 
 const realtimeServer = (httpServer) => {
   const io = new Server(httpServer);

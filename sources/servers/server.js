@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 const handlebars = require("express-handlebars");
-const router = require("./router");
-const connectMongo = require("./db");
+const router = require("../router");
+const connectMongo = require("../db");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const initializePassport = require("./config/passport.config");
+const initializePassport = require("../config/passport.config");
 const passport = require("passport");
 
 require('dotenv').config();

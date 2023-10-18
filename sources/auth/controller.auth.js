@@ -58,15 +58,12 @@ res.json({ status: "success", payload: "Nueva sesión iniciada",token });
 
 */
 
-
-
 router.post(
   "/login",
   passport.authenticate("login", { failureRedirect: "/faillogin" }),
   async (req, res) => {
     try {
       if (!req.user)
-      
         return res
           .status(400)
           .json({ status: "error", error: "invalid credentials" });
@@ -121,6 +118,5 @@ router.post('/token',async(req,res)=>{
   res.json({status:'success',message:'loged in',token})
 })
 */
-
 
 module.exports = router;

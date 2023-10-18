@@ -1,8 +1,9 @@
-const realtimeServer= require('./realTimeServer')
-const app = require('./server.js')
-require('dotenv').config();
-port = process.env.PORT
-//port=3000
+const { port } = require('./config');
+const realtimeServer= require('./servers/realTimeServer')
+const app = require('./servers/server.js')
+
+
+
 
 
 const httpServer = app.listen(port, () => {
