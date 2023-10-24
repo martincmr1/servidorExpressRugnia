@@ -4,6 +4,8 @@ const realTimeProductsController = require("../controllers/products.controllerRe
 const mongoProductsController = require("../controllers/products.controllerMongo");
 const cartsControllerMongo = require("../controllers/carts.controllerMongo");
 const chatControllerMongo = require("../controllers/chat.controllerMongo");
+const mockUserscontroller = require("../controllers/mockUsers.controller")
+const mockProductscontroller = require("../controllers/mockProducts.controller")
 
 const authController = require("../auth/controller.auth");
 const templateController = require("../templates/controller.template");
@@ -19,6 +21,8 @@ const router = (app) => {
   app.use("/mongo", protectedRouteProducts, mongoProductsController);
   app.use("/cartsMongo", cartsControllerMongo);
   app.use("/chat", chatControllerMongo);
+  app.use("/mockUsers",mockUserscontroller);
+  app.use("/mockingproducts",mockProductscontroller);
 
   app.use("/", templateController);
   app.use("/auth", authController);

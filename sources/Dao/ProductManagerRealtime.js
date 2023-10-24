@@ -3,7 +3,8 @@ const path = require("path");
 
 class ProductManagerRealtime {
   constructor() {
-    this.productsFilePath = path.join(process.cwd(), "productos.json");
+   // this.productsFilePath = path.join(process.cwd(), "productos.json");
+   this.productsFilePath = path.join(__dirname, "../db/fileSystem/productos.json");
   }
 
   async getProducts(req, res) {

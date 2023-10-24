@@ -3,7 +3,9 @@ const path = require("path");
 
 class CartsManagerFs {
   constructor() {
-    this.carritoFilePath = path.join(process.cwd(), "carrito.json");
+ //   this.carritoFilePath = path.join(process.cwd(), "carrito.json");
+    this.carritoFilePathFilePath = path.join(__dirname, "../db/fileSystem/carrito.json");
+  
   }
   async getCartbyId(req, res) {
     try {

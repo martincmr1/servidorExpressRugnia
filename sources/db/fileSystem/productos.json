@@ -1,0 +1,1097 @@
+
+
+
+[
+    {
+        "id": 1692065861465,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692065862079,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692066682331,
+        "title": "campera",
+        "description": "gamuza",
+        "price": 6000,
+        "code": "50",
+        "stock": 6,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692067780839,
+        "title": "mochila",
+        "description": "viaje",
+        "price": 900,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "weekend",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692492530526,
+        "title": "m",
+        "description": "manga larga",
+        "price": 300,
+        "code": "56",
+        "stock": 6,
+        "status": "true",
+        "category": "colonial",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692493184145,
+        "title": "hh",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692493601271,
+        "title": "jjj",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692493744638,
+        "title": "jjj",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692493748646,
+        "title": "jjj",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692547208208,
+        "title": "escalera",
+        "description": "tijera",
+        "price": 500,
+        "code": "56",
+        "stock": 6,
+        "status": "true",
+        "category": "construccion",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692550253352,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692550267641,
+        "title": "tv",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692551445300,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 6,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692551544207,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "colonial",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552056515,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "colonial",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552099960,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552156579,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552166099,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552174879,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552544879,
+        "title": "zapato",
+        "description": "naranja",
+        "price": 500,
+        "code": "h-200",
+        "stock": 30,
+        "status": "true",
+        "category": "4x4",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552567265,
+        "title": "zapato",
+        "description": "naranja",
+        "price": 500,
+        "code": "h-200",
+        "stock": 30,
+        "status": "true",
+        "category": "4x4",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692552712209,
+        "title": "zapato",
+        "description": "naranja",
+        "price": 500,
+        "code": "h-200",
+        "stock": 30,
+        "status": "true",
+        "category": "4x4",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553037701,
+        "title": "zapato",
+        "description": "naranja",
+        "price": 500,
+        "code": "h-200",
+        "stock": 30,
+        "status": "true",
+        "category": "4x4",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553171739,
+        "title": "zapato",
+        "description": "naranja",
+        "price": 500,
+        "code": "h-200",
+        "stock": 30,
+        "status": "true",
+        "category": "4x4",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553379462,
+        "title": "mm",
+        "description": "mm",
+        "price": 300,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553391195,
+        "title": "mm",
+        "description": "mm",
+        "price": 300,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553403737,
+        "title": "mm",
+        "description": "mm",
+        "price": 500,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553579040,
+        "title": "mm",
+        "description": "mm",
+        "price": 500,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553586387,
+        "title": "mm",
+        "description": "mm",
+        "price": 500,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553628122,
+        "title": "mm",
+        "description": "mm",
+        "price": 500,
+        "code": "445",
+        "stock": 50,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692553937051,
+        "title": "mm",
+        "description": "hh",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692556698591,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692556715052,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692556835538,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692556915565,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692557020901,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692557137316,
+        "title": "mm",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 2,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558028525,
+        "title": "hh",
+        "description": "gg",
+        "price": 300,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "colonial",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558049272,
+        "title": "hh",
+        "description": "gg",
+        "price": 400,
+        "code": "56",
+        "stock": 20,
+        "status": "true",
+        "category": "colonial",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558702580,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558710137,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558778927,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692558779812,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559019969,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559058023,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559103758,
+        "title": "kk",
+        "description": "uu",
+        "price": 300,
+        "code": "hhj",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559697722,
+        "title": "ff",
+        "description": "gg",
+        "price": 30,
+        "code": "gg",
+        "stock": 25,
+        "status": "gg",
+        "category": "gg",
+        "thumbnails": [
+            "gg"
+        ]
+    },
+    {
+        "id": 1692559698616,
+        "title": "ff",
+        "description": "gg",
+        "price": 30,
+        "code": "gg",
+        "stock": 25,
+        "status": "gg",
+        "category": "gg",
+        "thumbnails": [
+            "gg"
+        ]
+    },
+    {
+        "id": 1692559699548,
+        "title": "ff",
+        "description": "gg",
+        "price": 30,
+        "code": "gg",
+        "stock": 25,
+        "status": "gg",
+        "category": "gg",
+        "thumbnails": [
+            "gg"
+        ]
+    },
+    {
+        "id": 1692559727795,
+        "title": "gato",
+        "description": "persa",
+        "price": 300,
+        "code": "56",
+        "stock": 50,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559771881,
+        "title": "gato",
+        "description": "persa",
+        "price": 300,
+        "code": "56",
+        "stock": 50,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692559860290,
+        "title": "gato",
+        "description": "persa",
+        "price": 300,
+        "code": "hh",
+        "stock": 50,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692560133091,
+        "title": "perro",
+        "description": "labrador",
+        "price": 300,
+        "code": "g",
+        "stock": 2,
+        "status": "true",
+        "category": "pets",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692560134015,
+        "title": "perro",
+        "description": "labrador",
+        "price": 300,
+        "code": "g",
+        "stock": 2,
+        "status": "true",
+        "category": "pets",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692656903377,
+        "title": "rollo cocina",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657013360,
+        "title": "rollo cocina",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657051005,
+        "title": "papel higienico",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657052466,
+        "title": "papel higienico",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657079371,
+        "title": "papel higienico",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657156306,
+        "title": "papel higie",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657216819,
+        "title": "papel higie",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657218320,
+        "title": "papel higie",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657260648,
+        "title": "papel higie",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692657270809,
+        "title": "pape",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692658566436,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692658881235,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692658943717,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659159178,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659192222,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659326764,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659374071,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659587436,
+        "title": "papel hh",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659664737,
+        "title": "papel hh",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659739270,
+        "title": "papel hh",
+        "description": "120mts",
+        "price": 300,
+        "code": "56",
+        "stock": 56,
+        "status": "true",
+        "category": "linea",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692659829993,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692660571386,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692661114287,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692661310940,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692661692439,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692661744239,
+        "title": "tv",
+        "description": "samsung",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692662226032,
+        "title": "tv",
+        "description": "lg",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692664196678,
+        "title": "tv",
+        "description": "lg",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692664633168,
+        "title": "tv",
+        "description": "lg",
+        "price": 6000,
+        "code": "56",
+        "stock": 30,
+        "status": "true",
+        "category": "led",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    },
+    {
+        "id": 1692922792029,
+        "title": "mochila",
+        "description": "escolar",
+        "price": 200,
+        "code": "500",
+        "stock": 50,
+        "status": "true",
+        "category": "vestimenta",
+        "thumbnails": [
+            "www.google.com"
+        ]
+    }
+]

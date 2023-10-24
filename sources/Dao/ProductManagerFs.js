@@ -3,7 +3,8 @@ const path = require("path");
 
 class ProductManagerFs {
   constructor() {
-    this.productsFilePath = path.join(process.cwd(), "productos.json");
+  //  this.productsFilePath = path.join(process.cwd(), "productos.json");
+  this.productsFilePath = path.join(__dirname, "../db/fileSystem/productos.json");
   }
   async getProducts(req, res) {
     const { limit } = req.query;
