@@ -1,0 +1,10 @@
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:31"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:32"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:32"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:33"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:48"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:49"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:49"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:43:51"}

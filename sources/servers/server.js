@@ -12,6 +12,7 @@ const initializePassport = require("../config/passport.config");
 const passport = require("passport");
 const compression = require("express-compression");
 const errorHandler = require("../middlewares/errors");
+const logger = require("../middlewares/logger.middleware");
 
 require('dotenv').config();
 
@@ -26,6 +27,7 @@ app.use(compression({
   brotli:{enabled:true,zlib:{}}
 }))
 app.use(errorHandler)
+app.use(logger)
 
 app.use(
   session({

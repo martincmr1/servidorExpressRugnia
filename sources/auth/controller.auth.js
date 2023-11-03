@@ -1,6 +1,7 @@
 const { Router } = require("express");
 
 const passport = require("passport");
+const winstonlogger = require("../utils/winston/logger.winston");
 //const { authToken, generateToken } = require("../utils/jwt.util");
 //const Users = require("../Dao/models/users.model");
 //const { comparePassword } = require("../utils/password");
@@ -64,6 +65,7 @@ router.post(
   async (req, res) => {
     try {
       if (!req.user)
+    
         return res
           .status(400)
           .json({ status: "error", error: "invalid credentials" });
@@ -74,6 +76,7 @@ router.post(
 
       res.json({ status: "success", payload: "Nueva sesión iniciada" });
     } catch (error) {
+      
       console.log(error);
       res.status(500).json({ status: "error", error: "internal server error" });
     }

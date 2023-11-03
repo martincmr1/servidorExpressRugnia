@@ -63,7 +63,7 @@ class ProductManagerMongo {
           sort || ""
         }&query=${query || ""}`;
       }
-
+      req.logger.warn('vista de productos')
       res.render("products", {
         products: response.payload,
         hasNextPage,

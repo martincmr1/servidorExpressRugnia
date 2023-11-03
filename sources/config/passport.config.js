@@ -69,6 +69,7 @@ const initializePassport = () => {
           const user = await Users.findOne({ email: username });
           if (!user) {
             console.log("El usuario no existe");
+      
             return done(null, false);
           }
 
