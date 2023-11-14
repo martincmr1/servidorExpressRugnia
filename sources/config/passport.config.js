@@ -15,7 +15,7 @@ const initializePassport = () => {
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, username, password, done) => {
-        const { first_name, last_name, email } = req.body;
+        const { first_name, last_name, email,role } = req.body;
         const age = parseInt(req.body.age, 10);
         try {
           const user = await Users.findOne({ email: username });
@@ -27,6 +27,7 @@ const initializePassport = () => {
             last_name,
             email,
             age,
+            role,
             password: getHashedPassword(password),
           };
 

@@ -31,3 +31,68 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+/*
+
+ document.getElementById('productForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Obtener los datos del formulario
+      const formData = new FormData(this);
+
+      // Enviar la solicitud POST usando Fetch API
+      fetch('/ruta-donde-procesas-el-formulario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejar la respuesta del servidor
+        console.log('Respuesta del servidor:', data);
+      })
+      .catch(error => {
+        // Manejar errores de la solicitud
+        console.error('Error de la solicitud:', error);
+      });
+    });
+
+
+    document.getElementById('productForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Obtener los datos del formulario
+      const formData = new FormData(this);
+
+      // Enviar la solicitud POST usando Fetch API
+      fetch('/ruta-donde-procesas-el-formulario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejar la respuesta del servidor
+        console.log('Respuesta del servidor:', data);
+      })
+      .catch(error => {
+        // Manejar errores de la solicitud
+        console.error('Error de la solicitud:', error);
+      });
+    });
+*/
