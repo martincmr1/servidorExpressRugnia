@@ -1,0 +1,152 @@
+openapi: '3.0.1'
+info:
+  title: API de Productos
+  version: '1.0'
+paths:
+  /mongo/:
+    get:
+      summary: Obtener todos los productos
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Todos los productos fueron obtenidos correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+  /mongo/{pid}:
+    get:
+      summary: Obtener un producto por ID
+      tags:
+        - Productos
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto a buscar
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Producto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          
+    put:
+      summary: Actualizar un producto por ID
+      tags:
+        - Productos
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/updateProduct'  
+              
+    delete: 
+      summary: Eliminar un producto 
+      tags:
+        - Productos
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID del producto a eliminar
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Producto eliminado 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+             
+         
+
+
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ID de Mongo
+        title:
+          type: string
+          description: Nombre del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: number
+          description: Precio del producto
+        code:
+          type: string
+          description: Código del producto
+        stock:
+          type: number
+          description: Stock del producto
+        status:
+          type: string
+          description: Estado del producto
+        category:
+          type: string
+          description: Categoría del producto
+        thumbnails:
+          type: array
+          description: Imágenes del producto
+
+  requestBodies:
+    updateProduct:
+      description: Cuerpo con los parámetros a actualizar
+      properties:
+        title:
+          type: string
+          description: Nombre del producto
+        description:
+          type: string
+          description: Descripción del producto
+        price:
+          type: number
+          description: Precio del producto
+        code:
+          type: string
+          description: Código del producto
+        stock:
+          type: number
+          description: Stock del producto
+        status:
+          type: string
+          description: Estado del producto
+        category:
+          type: string
+          description: Categoría del producto
+        thumbnails:
+          type: array
+          description: Imágenes del producto
+      example:
+        title: Heladera
+        description: Con Freezer
+        price: 500
+        code: ab5689
+        stock: 2
+        status: true
+        category: Electrodomésticos
+        thumbnails: [www.imagen.bmp]
+                

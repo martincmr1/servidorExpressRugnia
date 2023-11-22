@@ -13,6 +13,8 @@ const passport = require("passport");
 const compression = require("express-compression");
 const errorHandler = require("../middlewares/errors");
 const logger = require("../middlewares/logger.middleware");
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUi = require('swagger-ui-express')
 
 require('dotenv').config();
 
@@ -28,6 +30,9 @@ app.use(compression({
 }))
 app.use(errorHandler)
 app.use(logger)
+
+
+
 
 app.use(
   session({
@@ -45,6 +50,25 @@ app.use(
 initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
+
+const swaggerOptios = {
+  definition :{
+    openapi:'3.0.1',
+    info:{
+      title:'Documentacion del E-Commerce',
+      description:'Funcionamiento de la App',
+    }
+  },
+  apis: [`${process.cwd()}/docs/**/*.yaml`]
+
+}
+
+console.log(process.cwd())
+
+const spec =swaggerJSDoc(swaggerOptios)
+app.use('/api',swaggerUi.serve,swaggerUi.setup(spec))
+
+
 
 connectMongo();
 
