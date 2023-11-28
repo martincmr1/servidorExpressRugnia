@@ -63,7 +63,7 @@ const swaggerOptios = {
 
 }
 
-console.log(process.cwd())
+
 
 const spec =swaggerJSDoc(swaggerOptios)
 app.use('/api',swaggerUi.serve,swaggerUi.setup(spec))

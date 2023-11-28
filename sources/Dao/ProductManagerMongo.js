@@ -64,7 +64,8 @@ class ProductManagerMongo {
         }&query=${query || ""}`;
       }
       req.logger.warn('vista de productos')
-      res.render("products", {
+      res.status(200).render("products", {
+        payload:products,
         products: response.payload,
         hasNextPage,
         nextLink: response.nextLink,
@@ -105,17 +106,17 @@ class ProductManagerMongo {
         status,
       } = req.body;
       if (
-        !title ||
-        !description ||
-        !code ||
-        !price ||
-        !stock ||
-        !category ||
-        !status
+        typeof title !== 'string' ||
+        typeof description !== 'string' ||
+        typeof code !== 'string' ||
+        typeof price !== 'number' ||
+        typeof stock !== 'number' ||
+        typeof title !== 'string' ||
+        typeof status !== 'string' 
       ) {
         return res
           .status(400)
-          .json({ message: "Todos los campos son obligatorios" });
+          .json({ message: "Todos los campos son obligatorios o no tienen el formato adecuado" });
       }
       const thumbnailsArray = thumbnails ? thumbnails.split(",") : [];
       const newProduct = {
@@ -129,7 +130,7 @@ class ProductManagerMongo {
         thumbnails: thumbnailsArray,
       };
       const createdProduct = await CREATE_PRODUCT(newProduct);
-      res.status(200).json({
+      res.status(201).json({
         message: `Producto ID: ${createdProduct._id} agregado exitosamente`,
         createdProduct,
       });
@@ -174,6 +175,7 @@ class ProductManagerMongo {
       if (updatedProduct) {
         res.status(200).json({
           message: "Producto actualizado correctamente",
+          payload:updatedProduct,
           updatedProduct,
         });
       } else {

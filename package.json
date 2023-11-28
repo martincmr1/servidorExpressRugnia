@@ -4,7 +4,9 @@
   "description": "serverrugnia",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "test:watch": "nodemon --watch test --exec \"npm run test\"",
+    "start": "node sources/index.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +52,9 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "colors": "^1.4.0"
+    "chai": "^4.3.10",
+    "colors": "^1.4.0",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }
