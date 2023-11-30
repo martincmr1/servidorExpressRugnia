@@ -44,7 +44,7 @@ router.post(
         role: "user",
       };
 
-      res.json({ status: "success", payload: "Nueva sesión iniciada" });
+      res.status(200).json({ status: "success", payload: "Nueva sesión iniciada" });
     } catch (error) {
       console.log(error);
       res.status(500).json({ status: "error", error: "internal server error" });

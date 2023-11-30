@@ -185,21 +185,19 @@ class ProductManagerMongo {
       res.status(500).json({ message: "error en el servidor" });
     }
   }
-
-  async deleteProduct(req, res) {
+  async  deleteProduct(req, res) {
     try {
       const id = req.params.pid;
       const deletedProduct = await DELETE_PRODUCT(id);
-      Products.fin;
+      
       if (deletedProduct) {
-        res
-          .status(200)
-          .json({ message: `Producto ID ${id} eliminado exitosamente` });
+        res.status(200).json({ message: `Producto ID ${id} eliminado exitosamente` });
       } else {
         res.status(404).json({ message: "El ID no es válido" });
       }
     } catch (error) {
       res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
+  
     }
   }
 }

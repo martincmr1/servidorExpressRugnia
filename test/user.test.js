@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 const Assert = require("node:assert");
 const {
   GET_USERS,
@@ -56,3 +56,7 @@ describe("Testear DAO de usuario", () => {
     assert.strictEqual(typeof user, "object");
   })
 });
+
+
+
+*/

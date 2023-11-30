@@ -16,12 +16,13 @@ const CREATE_PRODUCT = (newProductData) => {
   return Products.create(newProductData);
 };
 
-const UPDATE_PRODUCT = (productData) => {
-  return Products.findByIdAndUpdate(productData);
+const UPDATE_PRODUCT = (productId, updatedFields) => {
+  return Products.findByIdAndUpdate(productId, updatedFields, { new: true });
 };
 
+
 const DELETE_PRODUCT = (productId) => {
-  return Products.findByIdAndUpdate(productId);
+  return Products.findByIdAndDelete(productId);
 };
 
 module.exports = {

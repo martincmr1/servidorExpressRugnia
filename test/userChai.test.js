@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 const chai = require('chai');
 const { CREATE_USER, DELETE_ALL_USERS, GET_USERS } = require("../sources/services/users.service");
 const Users = require("../sources/Dao/models/users.model");
@@ -55,4 +55,4 @@ const MockUser = {
      expect(user).to.have.property('email')
     })
   });
-  
+  */

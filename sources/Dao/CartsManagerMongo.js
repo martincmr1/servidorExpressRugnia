@@ -41,7 +41,7 @@ class CartsManagerFs {
       }
 
       const result = await Carts.updateOne(
-        { id: Number(cid) },
+        { _id: cid},
         {
           $addToSet: {
             products: {
