@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "test:watch": "nodemon --watch test --exec \"npm run test\"",
-    "start": "node sources/index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
