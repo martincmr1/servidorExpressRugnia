@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/mongo", "dest": "/sources/index.js" },
-    { "handle": "filesystem" }
+  "builds": [
+    { "sources": "index.js", "use": "@vercel/node" }
   ]
+  
 }
