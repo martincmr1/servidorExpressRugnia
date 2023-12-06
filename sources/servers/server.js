@@ -66,7 +66,7 @@ const swaggerOptios = {
 
 
 const spec =swaggerJSDoc(swaggerOptios)
-app.use('/api',swaggerUi.serve,swaggerUi.setup(spec))
+app.use('/apis',swaggerUi.serve,swaggerUi.setup(spec))
 
 
 

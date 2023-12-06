@@ -16,7 +16,8 @@ router.get("/api/sessions/current", protectedRoute, (req, res) => {
     name:  req.user.first_name,
     lastname:  req.user.last_name,
     email: req.session.user.email,
-    role:  req.session.user.role,
+    role:  req.user.role,
+  //  cart: req.user.cart._id
   };
 
   

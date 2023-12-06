@@ -4,95 +4,55 @@ document.addEventListener("DOMContentLoaded", function () {
   productForms.forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      const action = form.getAttribute("action");   
+      const parts = action.split("/"); // Dividir la URL en segmentos
+     
+      // Obteniendo cartId y productId de los segmentos de la URL
+      const cartId = document.getElementById('cart').textContent;
+      const productId = parts[1];
 
-      const productId = form.getAttribute("action").split("/").pop();
+      const quantityValue = form.elements.quantity.value;
+    //  console.log("Valor de quantity:", quantityValue);
 
-      try {
-        const response = await fetch(
-          `/cartsMongo/1692745760670/products/${productId}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ quantity: 1 }),
+      // Resto del código para procesar el valor de quantityValue
+    
+  
+
+
+
+
+
+
+
+
+
+      // Verificar si tanto cartId como productId existen y tienen valor
+      if (cartId && productId) {
+        try {
+          const response = await fetch(
+            `/cartsMongo/${cartId}/products/${productId}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ quantity: quantityValue }),
+            }
+          );
+
+          if (response.ok) {
+            alert("Producto agregado al carrito exitosamente.");
+          } else {
+            alert("Hubo un problema al agregar el producto al carrito.");
           }
-        );
-
-        if (response.ok) {
-          alert("Producto agregado al carrito exitosamente.");
-        } else {
-          alert("Hubo un problema al agregar el producto al carrito.");
+        } catch (error) {
+          console.error("Error al agregar el producto al carrito:", error);
+          alert("Error en el servidor al agregar el producto al carrito.");
         }
-      } catch (error) {
-        console.error("Error al agregar el producto al carrito:", error);
-        alert("Error en el servidor al agregar el producto al carrito.");
+      } else {
+        // Si cartId o productId no tienen valor o no existen, redirigir al usuario al login
+        window.location.href = '/login'; // Reemplaza '/login' con la URL de tu página de login
       }
     });
   });
 });
-
-
-/*
-
- document.getElementById('productForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      // Obtener los datos del formulario
-      const formData = new FormData(this);
-
-      // Enviar la solicitud POST usando Fetch API
-      fetch('/ruta-donde-procesas-el-formulario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Manejar la respuesta del servidor
-        console.log('Respuesta del servidor:', data);
-      })
-      .catch(error => {
-        // Manejar errores de la solicitud
-        console.error('Error de la solicitud:', error);
-      });
-    });
-
-
-    document.getElementById('productForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      // Obtener los datos del formulario
-      const formData = new FormData(this);
-
-      // Enviar la solicitud POST usando Fetch API
-      fetch('/ruta-donde-procesas-el-formulario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Manejar la respuesta del servidor
-        console.log('Respuesta del servidor:', data);
-      })
-      .catch(error => {
-        // Manejar errores de la solicitud
-        console.error('Error de la solicitud:', error);
-      });
-    });
-*/
