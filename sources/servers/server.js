@@ -3,7 +3,7 @@ const app = express();
 const handlebars = require("express-handlebars");
 const router = require("../router");
 const connectMongo = require("../db");
-
+const path = require("path");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -26,7 +26,6 @@ app.engine("handlebars", handlebars.engine());
 
 app.set("views", path.join(__dirname, "sources/views"));
 console.log(path.join(__dirname, "sources/views"));
-
 
 //app.set("views", process.cwd() + "/views");
 app.set("view engine", "handlebars");
