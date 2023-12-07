@@ -11,9 +11,10 @@
     ],
     "frameworks": {
       "node": {
-        "buildCommand": "npm install && npm run build", 
+        "buildCommand": "npm install", 
         "outputDirectory": "sources"
       }
     }
   }
   
+
