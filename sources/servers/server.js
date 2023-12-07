@@ -24,6 +24,8 @@ app.use(express.static(process.cwd() + "sources/public"));
 app.engine("handlebars", handlebars.engine());
 app.set("views", process.cwd() + "/sources/views");
 
+
+
 //app.set("views", process.cwd() + "/views");
 app.set("view engine", "handlebars");
 app.use(cookieParser());
@@ -33,8 +35,7 @@ app.use(compression({
 app.use(errorHandler)
 app.use(logger)
 
-
-
+console.log(process.cwd() + "/sources/views");
 
 app.use(
   session({
