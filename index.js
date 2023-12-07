@@ -16,9 +16,6 @@ const httpServer = app.listen(port, () => {
 
 */
 
-
-//const { port } = require('./sources/config');
-const realtimeServer = require('./sources/servers/realTimeServer');
 const app = require('./sources/servers/server.js');
 
-module.exports = { app, realtimeServer };
+module.exports = app; // Exporta tu aplicación Express como un servidor

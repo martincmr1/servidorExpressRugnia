@@ -10,7 +10,6 @@ realtimeServer(httpServer);
 */
 
 
-const realtimeServer = require('./servers/realTimeServer');
 const app = require('./servers/server.js');
 
-module.exports = { app, realtimeServer };
+module.exports = app; // Exporta tu aplicación Express como un servidor
