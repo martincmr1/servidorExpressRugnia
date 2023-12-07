@@ -9,6 +9,12 @@ const mockProductscontroller = require("../controllers/mockProducts.controller")
 
 const authController = require("../auth/controller.auth");
 const templateController = require("../templates/controller.template");
+
+
+console.log("mongo","../controllers/products.controllerMongo" );
+
+
+
 //const {
 /* protectedRouteProducts,
 } = require("../middlewares/protected-route.middleware");
