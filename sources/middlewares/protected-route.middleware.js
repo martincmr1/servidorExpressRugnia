@@ -1,3 +1,6 @@
+/*
+
+
 const protectedRoute = (req, res, next) => {
   if (!req.session.user) return res.redirect("/login");
 
@@ -9,3 +12,4 @@ const protectedRouteProducts = (req, res, next) => {
 };
 
 module.exports = { protectedRoute, protectedRouteProducts };
+*/

@@ -18,7 +18,9 @@ const router = (app) => {
   app.use("/api/products", productsController);
   app.use("/api/carts", cartsController);
   app.use("/realtimeproducts", realTimeProductsController);
-  app.use("/mongo", protectedRouteProducts, mongoProductsController);
+ 
+  app.use("/mongo", mongoProductsController);
+  // app.use("/mongo", protectedRouteProducts, mongoProductsController);
   app.use("/cartsMongo", cartsControllerMongo);
   app.use("/chat", chatControllerMongo);
   app.use("/mockUsers",mockUserscontroller);
