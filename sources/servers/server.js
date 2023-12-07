@@ -22,8 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(process.cwd() + "sources/public"));
 app.engine("handlebars", handlebars.engine());
-app.set("views", process.cwd() + "/sources/views");
+//app.set("views", process.cwd() + "/sources/views");
 
+app.set("views", path.join(__dirname, "sources/views"));
+console.log(path.join(__dirname, "sources/views"));
 
 
 //app.set("views", process.cwd() + "/views");
@@ -35,7 +37,7 @@ app.use(compression({
 app.use(errorHandler)
 app.use(logger)
 
-console.log(process.cwd() + "/sources/views");
+//console.log(process.cwd() + "/sources/views");
 
 app.use(
   session({
