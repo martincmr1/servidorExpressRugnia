@@ -21,4 +21,4 @@ const httpServer = app.listen(port, () => {
 const realtimeServer = require('./sources/servers/realTimeServer');
 const app = require('./sources/servers/server.js');
 
-module.exports = { app, port, realtimeServer };
+module.exports = { app, realtimeServer };

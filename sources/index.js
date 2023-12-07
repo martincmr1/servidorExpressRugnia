@@ -1,4 +1,4 @@
-const { port } = require("./config");
+/*const { port } = require("./config");
 const realtimeServer = require("./servers/realTimeServer");
 const app = require("./servers/server.js");
 
@@ -7,3 +7,10 @@ const httpServer = app.listen(port, () => {
 });
 
 realtimeServer(httpServer);
+*/
+
+
+const realtimeServer = require('./servers/realTimeServer');
+const app = require('./servers/server.js');
+
+module.exports = { app, realtimeServer };
