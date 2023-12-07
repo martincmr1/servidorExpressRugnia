@@ -24,8 +24,8 @@ app.use(express.static(process.cwd() + "sources/public"));
 app.engine("handlebars", handlebars.engine());
 //app.set("views", process.cwd() + "/sources/views");
 
-app.set("views", path.join(__dirname, "sources/views"));
-console.log(path.join(__dirname, "sources/views"));
+app.set("views", path.join(__dirname, "../views"));
+console.log(path.join(__dirname, "../views"));
 
 //app.set("views", process.cwd() + "/views");
 app.set("view engine", "handlebars");
