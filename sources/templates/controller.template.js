@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { protectedRoute } = require("../middlewares/protected-route.middleware");
+//const { protectedRoute } = require("../middlewares/protected-route.middleware");
 
 const router = Router();
 
@@ -10,8 +10,8 @@ router.get("/register", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("login");
 });
-
-router.get("/api/sessions/current", protectedRoute, (req, res) => {
+router.get("/api/sessions/current", (req, res) => {
+//router.get("/api/sessions/current", protectedRoute, (req, res) => {
   const user = {
     name:  req.user.first_name,
     lastname:  req.user.last_name,
