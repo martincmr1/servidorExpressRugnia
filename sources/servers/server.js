@@ -20,7 +20,7 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(process.cwd() + "sources/public"));
 app.engine("handlebars", handlebars.engine());
 app.set("views", process.cwd() + "/sources/views");
 
