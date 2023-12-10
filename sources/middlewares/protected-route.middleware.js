@@ -1,4 +1,4 @@
-/*
+
 
 
 const protectedRoute = (req, res, next) => {
@@ -12,4 +12,3 @@ const protectedRouteProducts = (req, res, next) => {
 };
 
 module.exports = { protectedRoute, protectedRouteProducts };
-*/

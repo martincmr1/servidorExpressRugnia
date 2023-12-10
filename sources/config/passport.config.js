@@ -5,7 +5,6 @@ const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const transport = require("../utils/nodemailer.util");
 const { UserMail } = require(".");
-const Carts = require("../Dao/models/carts.model");
 require("dotenv").config();
 
 const LocalStrategy = local.Strategy;
@@ -16,20 +15,13 @@ const initializePassport = () => {
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, username, password, done) => {
-        const { first_name, last_name, email, role } = req.body;
+        const { first_name, last_name, email,role } = req.body;
         const age = parseInt(req.body.age, 10);
-
         try {
           const user = await Users.findOne({ email: username });
           if (user) {
-            return done(null, false); // Usuario ya existe
+            return done(null, false);
           }
-
-           const id = Date.now();
-         const products = [];
-         const newCart = {  products,id };
-          const cart = await Carts.create(newCart);
-
           const userInfo = {
             first_name,
             last_name,
@@ -37,24 +29,22 @@ const initializePassport = () => {
             age,
             role,
             password: getHashedPassword(password),
-            cart: cart// Usar la ID del carrito creado
           };
 
           try {
             await transport.sendMail({
               from: UserMail,
               to: userInfo.email,
-              subject: `¡Bienvenido, ${userInfo.first_name}!`,
+              subject: `bienvenido, ${userInfo.first_name}`,
               html: `
-                <div>
-                  <h1>¡Hola ${userInfo.last_name}! Gracias por registrarte</h1>
-                  <img src="cid:gatito" alt="Gatito" />
-                </div>
-              `,
+           <div>
+           <h1> hola ${userInfo.last_name} Gracias por registrarte</h1>
+           <img src
+           </div> `,
               attachments: [{
-                filename: 'gato.jpg',
-                path: process.cwd() + '/images/gato.jpg',
-                cid: 'gatito',
+                filename:'gato.jpg',
+                path:process.cwd() + '/images/gato.jpg',
+                cid:'gatito',
               }],
             });
           } catch (error) {
@@ -62,15 +52,14 @@ const initializePassport = () => {
           }
 
           const newUser = await Users.create(userInfo);
-          done(null, newUser); // Usuario creado exitosamente
+
+          done(null, newUser);
         } catch (error) {
-          done(`Error al crear el usuario: ${error}`);
+          done(`error al crear el usuario:${error}`);
         }
       }
     )
   );
-};
-
 
   passport.use(
     "login",
@@ -135,6 +124,6 @@ const initializePassport = () => {
     const user = await Users.findById(id);
     done(null, user);
   });
-
+};
 
 module.exports = initializePassport;

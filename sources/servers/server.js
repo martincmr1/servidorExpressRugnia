@@ -3,11 +3,11 @@ const app = express();
 const handlebars = require("express-handlebars");
 const router = require("../router");
 const connectMongo = require("../db");
-const path = require("path");
+
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const MongoStore = require('connect-mongo')
 const initializePassport = require("../config/passport.config");
 const passport = require("passport");
 const compression = require("express-compression");
@@ -20,16 +20,9 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-//app.use(express.static(__dirname, "../public"));
-app.use(express.static(process.cwd() + "sources/public"));
+app.use(express.static(process.cwd() + "/sources/public"));
 app.engine("handlebars", handlebars.engine());
-//app.set("views", process.cwd() + "/sources/views");
-
-app.set("views", path.join(__dirname, "../views"));
-console.log(path.join(__dirname, "../views"));
-
-//app.set("views", process.cwd() + "/views");
+app.set("views", process.cwd() + "/sources/views");
 app.set("view engine", "handlebars");
 app.use(cookieParser());
 app.use(compression({
@@ -38,7 +31,8 @@ app.use(compression({
 app.use(errorHandler)
 app.use(logger)
 
-//console.log(process.cwd() + "/sources/views");
+
+
 
 app.use(
   session({
@@ -65,18 +59,18 @@ const swaggerOptios = {
       description:'Funcionamiento de la App',
     }
   },
-  apis: [`${process.cwd()}/docs/**/*.yaml`]
+  apis: [`${process.cwd()}/sources/docs/**/*.yaml`]
 
 }
 
 
 
 const spec =swaggerJSDoc(swaggerOptios)
-app.use('/apis',swaggerUi.serve,swaggerUi.setup(spec))
+app.use('/documentation',swaggerUi.serve,swaggerUi.setup(spec))
 
 
 
-connectMongo();
+connectMongo()
 
 router(app);
 
