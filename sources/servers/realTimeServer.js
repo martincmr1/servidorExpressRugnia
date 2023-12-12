@@ -1,10 +1,11 @@
 const { Server } = require("socket.io");
 const fs = require("fs");
 const path = require("path");
-//const productsFilePath = path.join(process.cwd(), "productos.json");
-const productsFilePath = path.join(__dirname, "../db/fileSystem/productos.json");
 
-
+const productsFilePath = path.join(
+  __dirname,
+  "../db/fileSystem/productos.json"
+);
 
 const Messages = require("../Dao/models/messages.model");
 

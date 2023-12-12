@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 
 const { DELETE_ALL_USERS } = require("../sources/services/users.service");
 
-
-
 const connectMongo = async () => {
   try {
     await mongoose.connect(
@@ -20,9 +18,6 @@ const connectMongo = async () => {
 };
 
 connectMongo();
-
-
-
 
 const mockProduct = {
   title: "mochila",
@@ -47,7 +42,6 @@ const mockUser = {
 const chai = require("chai");
 const supertest = require("supertest");
 
-
 const expect = chai.expect;
 const requester = supertest("http://localhost:3000");
 
@@ -55,9 +49,7 @@ describe("testing de la API del e-commerce", () => {
   describe("Test de Carts", () => {
     it("el endpoint post debe crear un nuevo carrito", async () => {
       const response = await requester.post("/cartsMongo");
-    
-  
-    
+
       const cartId = response.body.newCart._id;
 
       expect(cartId).to.exist;

@@ -15,7 +15,7 @@ const initializePassport = () => {
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, username, password, done) => {
-        const { first_name, last_name, email,role } = req.body;
+        const { first_name, last_name, email, role } = req.body;
         const age = parseInt(req.body.age, 10);
         try {
           const user = await Users.findOne({ email: username });
@@ -41,11 +41,13 @@ const initializePassport = () => {
            <h1> hola ${userInfo.last_name} Gracias por registrarte</h1>
            <img src
            </div> `,
-              attachments: [{
-                filename:'gato.jpg',
-                path:process.cwd() + '/images/gato.jpg',
-                cid:'gatito',
-              }],
+              attachments: [
+                {
+                  filename: "gato.jpg",
+                  path: process.cwd() + "/sources/images/gato.jpg",
+                  cid: "gatito",
+                },
+              ],
             });
           } catch (error) {
             console.log(error);
@@ -70,15 +72,17 @@ const initializePassport = () => {
           const user = await Users.findOne({ email: username });
           if (!user) {
             console.log("El usuario no existe");
-      
             return done(null, false);
           }
 
           if (!comparePassword(password, user.password)) {
             console.log("Contraseña incorrecta");
-
             return done(null, false);
           }
+
+          // Actualiza last_connection al iniciar sesión
+         user.last_connection = new Date();
+          await user.save(); // Guarda el cambio en last_connection
 
           return done(null, user);
         } catch (error) {

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-//const { protectedRoute } = require("../middlewares/protected-route.middleware");
+const Users = require("../Dao/models/users.model");
 
 const router = Router();
 
@@ -11,20 +11,40 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 router.get("/api/sessions/current", (req, res) => {
-//router.get("/api/sessions/current", protectedRoute, (req, res) => {
   const user = {
-    name:  req.user.first_name,
-    lastname:  req.user.last_name,
+    name: req.user.first_name,
+    lastname: req.user.last_name,
     email: req.session.user.email,
-    role:  req.user.role,
-  //  cart: req.user.cart._id
+    role: req.user.role,
   };
 
-  
   return res.render("profile", user);
 });
 
-router.get("/logout", (req, res) => {
+router.get("/logout", async (req, res) => {
+  const userId = req.user._id;
+
+  try {
+    const user = await Users.findByIdAndUpdate(userId, {
+      last_connection: new Date(),
+    });
+
+    if (!user) {
+      console.error(
+        "Usuario no encontrado al actualizar last_connection al cerrar sesión"
+      );
+    } else {
+      console.log(
+        `Última conexión actualizada al cerrar sesión para ${user.email}`
+      );
+    }
+  } catch (error) {
+    console.error(
+      "Error al actualizar last_connection al cerrar sesión:",
+      error
+    );
+  }
+
   req.session.destroy((err) => {
     if (err) {
       return res.json({ status: "Logout ERROR", body: err });

@@ -4,29 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   productForms.forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const action = form.getAttribute("action");   
-      const parts = action.split("/"); // Dividir la URL en segmentos
-     
-      // Obteniendo cartId y productId de los segmentos de la URL
-      const cartId = document.getElementById('cart').textContent;
+      const action = form.getAttribute("action");
+      const parts = action.split("/");
+
+      const cartId = document.getElementById("cart").textContent;
       const productId = parts[1];
 
       const quantityValue = form.elements.quantity.value;
-    //  console.log("Valor de quantity:", quantityValue);
 
-      // Resto del código para procesar el valor de quantityValue
-    
-  
-
-
-
-
-
-
-
-
-
-      // Verificar si tanto cartId como productId existen y tienen valor
       if (cartId && productId) {
         try {
           const response = await fetch(
@@ -50,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("Error en el servidor al agregar el producto al carrito.");
         }
       } else {
-        // Si cartId o productId no tienen valor o no existen, redirigir al usuario al login
-        window.location.href = '/login'; // Reemplaza '/login' con la URL de tu página de login
+        window.location.href = "/login";
       }
     });
   });

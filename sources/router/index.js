@@ -7,7 +7,7 @@ const cartsControllerMongo = require("../controllers/carts.controllerMongo");
 const chatControllerMongo = require("../controllers/chat.controllerMongo");
 const mockUserscontroller = require("../controllers/mockUsers.controller")
 const mockProductscontroller = require("../controllers/mockProducts.controller")
-
+const usersController = require("../controllers/users.controller")
 const authController = require("../auth/controller.auth");
 const templateController = require("../templates/controller.template");
 const {
@@ -25,11 +25,16 @@ const router = (app) => {
   app.use("/mockUsers",mockUserscontroller);
   app.use("/mockingproducts",mockProductscontroller);
 
+  app.use("/api/users",usersController);
+
+
+
+
   app.use("/", templateController);
-  app.use("/auth", authController);
+ app.use("/auth", authController);
   app.use("*", (req, res) => {
-    res.render("notFound");
-  });
+   res.render("notFound");
+ });
 };
 
 module.exports = router;

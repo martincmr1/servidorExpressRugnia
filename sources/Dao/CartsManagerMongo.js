@@ -24,13 +24,11 @@ class CartsManagerFs {
   async getCartbyId(req, res) {
     try {
       const { cid } = req.params;
-  
+
       let user = null;
       if (req.session && req.session.user && req.session.user.email) {
         const userEmail = req.session.user.email;
         const foundUser = await Users.findOne({ email: userEmail });
-  
-
 
         if (foundUser) {
           user = {
@@ -38,23 +36,17 @@ class CartsManagerFs {
             email: foundUser.email,
             role: foundUser.role,
             age: foundUser.age,
-            cart:foundUser.cart._id
-
+            cart: foundUser.cart._id,
           };
         }
       }
 
-
-
-
-      // Buscar el carrito por su ID y obtener solo los productos asociados a ese carrito
       const cart = await Carts.findById(cid).lean().populate("products._id");
-      const productIds = cart.products.map(product => product._id);
-  
-      // Encontrar los productos cuyos IDs estén presentes en el carrito
+      const productIds = cart.products.map((product) => product._id);
+
       const products = await Products.find({ _id: { $in: productIds } });
-  
-      res.render("cartId", { cart: cart, products: products,user:user });
+
+      res.render("cartId", { cart: cart, products: products, user: user });
     } catch (error) {
       res.status(500).json({ error: "Error en el servidor" });
     }
@@ -62,33 +54,31 @@ class CartsManagerFs {
   async addProductToCart(req, res) {
     try {
       const { cid, pid } = req.params;
-      const { quantity } = req.body; // Asegúrate de enviar 'quantity' en el cuerpo de la solicitud
-  
+      const { quantity } = req.body;
+
       const product = await Products.findById(pid);
-  
+
       if (!product) {
         return res.status(404).json({ message: "Producto no encontrado" });
       }
-  
+
       const cart = await Carts.findById(cid);
-  
+
       const existingProductIndex = cart.products.findIndex(
         (cartProduct) => cartProduct._id.toString() === pid
       );
-  
+
       if (existingProductIndex !== -1) {
-        // Si el producto ya está en el carrito, actualiza su cantidad según lo recibido
         cart.products[existingProductIndex].quantity += parseInt(quantity, 10);
       } else {
-        // Si no está en el carrito, agrégalo con la cantidad recibida
         cart.products.push({
           _id: product._id,
-          quantity: parseInt(quantity, 10) || 1, // Si la cantidad no está presente, asume 1
+          quantity: parseInt(quantity, 10) || 1,
         });
       }
-  
+
       await cart.save();
-  
+
       res.status(200).json({
         message: `El producto con ID ${pid} fue agregado exitosamente al carrito ${cid}`,
       });
@@ -96,8 +86,6 @@ class CartsManagerFs {
       res.status(500).json({ error: "Error en el servidor" });
     }
   }
-  
- 
 
   async deleteProductToCart(req, res) {
     try {

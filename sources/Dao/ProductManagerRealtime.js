@@ -3,8 +3,10 @@ const path = require("path");
 
 class ProductManagerRealtime {
   constructor() {
-   // this.productsFilePath = path.join(process.cwd(), "productos.json");
-   this.productsFilePath = path.join(__dirname, "../db/fileSystem/productos.json");
+    this.productsFilePath = path.join(
+      __dirname,
+      "../db/fileSystem/productos.json"
+    );
   }
 
   async getProducts(req, res) {
@@ -81,12 +83,10 @@ class ProductManagerRealtime {
         JSON.stringify(products, null, 2),
         "utf-8"
       );
-      res
-        .status(200)
-        .json({
-          message: `"Producto ID:${infoProduct.id} agregado exitosamente"`,
-          infoProduct,
-        });
+      res.status(200).json({
+        message: `"Producto ID:${infoProduct.id} agregado exitosamente"`,
+        infoProduct,
+      });
     } catch (error) {
       res.status(400).json({ message: "Error recibiendo el producto" });
     }

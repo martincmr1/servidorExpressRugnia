@@ -3,8 +3,10 @@ const path = require("path");
 
 class ProductManagerFs {
   constructor() {
-  //  this.productsFilePath = path.join(process.cwd(), "productos.json");
-  this.productsFilePath = path.join(__dirname, "../db/fileSystem/productos.json");
+    this.productsFilePath = path.join(
+      __dirname,
+      "../db/fileSystem/productos.json"
+    );
   }
   async getProducts(req, res) {
     const { limit } = req.query;
@@ -175,12 +177,10 @@ class ProductManagerFs {
           this.productsFilePath,
           JSON.stringify(productos, null, 2)
         );
-        res
-          .status(200)
-          .json({
-            message: "Producto actualizado correctamente",
-            updatedProduct,
-          });
+        res.status(200).json({
+          message: "Producto actualizado correctamente",
+          updatedProduct,
+        });
       } else {
         res.status(404).json({ message: "Id no encontrado" });
       }

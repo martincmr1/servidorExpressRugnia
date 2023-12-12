@@ -1,57 +1,46 @@
 const { GET_PRODUCTS, GET_PRODUCTS_PAGES, GET_PRODUCTS_BY_ID, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } = require("../services/products.service");
-const Users = require("./models/users.model");
-//const Carts = require("./models/carts.model");
-//const Products = require("./models/product.model");
+const Products = require("./models/product.model");
 
 class ProductManagerMongo {
- 
-  async  getProducts(req, res) {
-    try {
-      const { limit = 10, page = 1, sort, query } = req.query;
-  
-      let user = null;
-      if (req.session && req.session.user && req.session.user.email) {
-        const userEmail = req.session.user.email;
-        const foundUser = await Users.findOne({ email: userEmail });
-  
-        if (foundUser) {
-          user = {
-            name: foundUser.first_name,
-            email: foundUser.email,
-            role: foundUser.role,
-            age: foundUser.age,
-            cart:foundUser.cart._id
+  async getProducts(req, res) {
+    const { limit = 10, page = 1, sort, query } = req.query;
 
-          };
-        }
-      }
-  
+    try {
+      const user = req.session.user
+        ? {
+            name: req.session.user.name,
+            email: req.session.user.email,
+            role: req.session.user.role,
+          }
+        : null;
       const pageAsNumber = parseInt(page, 10);
+
       let filter = {};
       if (query) {
         filter = { category: query };
       }
-  
+
       let sortOption = {};
       if (sort === "asc") {
         sortOption = { price: 1 };
       } else if (sort === "desc") {
         sortOption = { price: -1 };
       }
-  
       const products = await GET_PRODUCTS(filter)
+    //  const products = await Products.find(filter)
         .sort(sortOption)
         .skip((pageAsNumber - 1) * limit)
         .limit(Number(limit))
         .lean();
-  
-      const totalProducts = await GET_PRODUCTS_PAGES(filter);
+
+     // const totalProducts = await Products.countDocuments(filter);
+      const totalProducts = await GET_PRODUCTS_PAGES(filter)
       const totalPages = Math.ceil(totalProducts / limit);
       const hasPrevPage = pageAsNumber > 1;
       const hasNextPage = pageAsNumber < totalPages;
       const prevPage = hasPrevPage ? pageAsNumber - 1 : null;
       const nextPage = hasNextPage ? pageAsNumber + 1 : null;
-  
+
       const response = {
         status: "success",
         payload: products,
@@ -62,48 +51,32 @@ class ProductManagerMongo {
         hasPrevPage,
         hasNextPage,
       };
-  
+
       if (hasPrevPage) {
-        response.prevLink = `/mongo?limit=${limit}&page=${prevPage}&sort=${sort || ""}&query=${query || ""}`;
+        response.prevLink = `/mongo?limit=${limit}&page=${prevPage}&sort=${
+          sort || ""
+        }&query=${query || ""}`;
       }
-  
+
       if (hasNextPage) {
-        response.nextLink = `/mongo?limit=${limit}&page=${nextPage}&sort=${sort || ""}&query=${query || ""}`;
+        response.nextLink = `/mongo?limit=${limit}&page=${nextPage}&sort=${
+          sort || ""
+        }&query=${query || ""}`;
       }
-  
-      req.logger.warn('vista de productos');
-  
+      req.logger.warn('vista de productos')
       res.status(200).render("products", {
-        payload: products,
+        payload:products,
         products: response.payload,
         hasNextPage,
         nextLink: response.nextLink,
         user: user,
       });
     } catch (error) {
-      res.status(500).json({ status: "error", message: "Error en el servidor" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Error en el servidor" });
     }
   }
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
   async getProductById(req, res) {
     try {
