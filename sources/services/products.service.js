@@ -1,28 +1,29 @@
-const Products = require("../Dao/models/product.model");
+const ProductsDao = require("../Dao/mongo/mongo.products.dao");
+
+const productsDao = new ProductsDao();
 
 const GET_PRODUCTS_PAGES = () => {
-  return Products.countDocuments();
+  return productsDao.getAllPages();
 };
 
 const GET_PRODUCTS = (filter) => {
-  return Products.find(filter);
+  return productsDao.getAll(filter);
 };
 
 const GET_PRODUCTS_BY_ID = (productId) => {
-  return Products.findById(productId);
+  return productsDao.getById(productId);
 };
 
 const CREATE_PRODUCT = (newProductData) => {
-  return Products.create(newProductData);
+  return productsDao.create(newProductData);
 };
 
 const UPDATE_PRODUCT = (productId, updatedFields) => {
-  return Products.findByIdAndUpdate(productId, updatedFields, { new: true });
+  return productsDao.updateById(productId, updatedFields, { new: true });
 };
 
-
 const DELETE_PRODUCT = (productId) => {
-  return Products.findByIdAndDelete(productId);
+  return productsDao.deleteById(productId);
 };
 
 module.exports = {
@@ -33,3 +34,5 @@ module.exports = {
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
 };
+
+

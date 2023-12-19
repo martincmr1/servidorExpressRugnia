@@ -1059,3 +1059,185 @@
 {"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:09:51"}
 {"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:09:52"}
 {"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:09:52"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:34"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:35"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:35"}
+{"level":"http","message":"Method: GET en /logout - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:36"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:36"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:37"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:37"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:38"}
+{"level":"http","message":"Method: GET en /login - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:41"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:41"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:41"}
+{"level":"http","message":"Method: POST en /auth/login - Params: {}\n   -Queries : {} - Body : {\"email\":\"martinybelen1980@gmail.com\",\"password\":\"1234\"} -\n    22:10:46"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:47"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:48"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:48"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:49"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:51"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:52"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:52"}
+{"level":"http","message":"Method: DELETE en /cartsMongo/6580e92a13d19f536ddd3b5d/products/64e275a8cc983da84de0b408 - Params: {}\n   -Queries : {} - Body : {} -\n    22:10:54"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:11:00"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:11:01"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:11:01"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:12:44"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:12:45"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:12:45"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:12:46"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:17:57"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:17:59"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:17:59"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:00"}
+{"level":"http","message":"Method: GET en /api/sessions/current - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:06"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:07"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:07"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:09"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:09"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:09"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:10"}
+{"level":"http","message":"Method: GET en /logout - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:11"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:12"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:12"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:12"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:13"}
+{"level":"http","message":"Method: GET en /login - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:14"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:14"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:15"}
+{"level":"http","message":"Method: POST en /auth/login - Params: {}\n   -Queries : {} - Body : {\"email\":\"martinybelen1980@gmail.com\",\"password\":\"1234\"} -\n    22:18:20"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:21"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:22"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:22"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:23"}
+{"level":"http","message":"Method: GET en /api/sessions/current - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:25"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:26"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:26"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:28"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:29"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:29"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:18:29"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:21:58"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:21:59"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:22:00"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    22:22:09"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    22:22:10"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    22:22:10"}
+{"level":"http","message":"Method: GET en /realtimeproducts - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:46"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:46"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:50"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:52"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:52"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:56"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:41:56"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:42:57"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:42:57"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:45:16"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:45:54"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:45:55"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:45:55"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:46:26"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    10:46:28"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    10:46:28"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:46:29"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:52:57"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:52:57"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:52:58"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:52:58"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:51"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:51"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:53"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:54"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:54"}
+{"level":"http","message":"Method: GET en /realtimeproducts - Params: {}\n   -Queries : {} - Body : {} -\n    10:54:59"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:55:00"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:55:03"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    10:55:05"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    10:55:05"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:00:21"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:00:22"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:00:22"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:00:22"}
+{"level":"http","message":"Method: GET en /login - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:12"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:13"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:13"}
+{"level":"http","message":"Method: POST en /auth/login - Params: {}\n   -Queries : {} - Body : {\"email\":\"martinybelen1980@gmail.com\",\"password\":\"1234\"} -\n    11:02:19"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:20"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:21"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:21"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:02:23"}
+{"level":"http","message":"Method: GET en /mongo?limit=10&page=2&sort=&query= - Params: {}\n   -Queries : {\"limit\":\"10\",\"page\":\"2\",\"sort\":\"\",\"query\":\"\"} - Body : {} -\n    11:04:32"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:04:35"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:04:35"}
+{"level":"http","message":"Method: GET en /www.google.com.ar - Params: {}\n   -Queries : {} - Body : {} -\n    11:04:35"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:04:37"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:05:59"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:02"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:02"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:04"}
+{"level":"http","message":"Method: GET en /mongo?limit=10&page=2&sort=&query= - Params: {}\n   -Queries : {\"limit\":\"10\",\"page\":\"2\",\"sort\":\"\",\"query\":\"\"} - Body : {} -\n    11:06:08"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:10"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:10"}
+{"level":"http","message":"Method: GET en /www.google.com.ar - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:10"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:11"}
+{"level":"http","message":"Method: GET en /mongo?limit=10&page=3&sort=&query= - Params: {}\n   -Queries : {\"limit\":\"10\",\"page\":\"3\",\"sort\":\"\",\"query\":\"\"} - Body : {} -\n    11:06:16"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:17"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:17"}
+{"level":"http","message":"Method: GET en /www.google.com.ar - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:17"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:18"}
+{"level":"http","message":"Method: POST en /cartsMongo/6580e92a13d19f536ddd3b5d/products/6563521eb6eb00f66ac71b14 - Params: {}\n   -Queries : {} - Body : {\"quantity\":\"5\"} -\n    11:06:24"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:27"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:29"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:29"}
+{"level":"http","message":"Method: DELETE en /cartsMongo/6580e92a13d19f536ddd3b5d/products/64e3e59b15707e39f9cad137 - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:31"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:35"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:36"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:06:37"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:40"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:42"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:42"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:44"}
+{"level":"http","message":"Method: POST en /cartsMongo/6580e92a13d19f536ddd3b5d/products/64e275a8cc983da84de0b408 - Params: {}\n   -Queries : {} - Body : {\"quantity\":\"1\"} -\n    11:20:44"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:48"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:50"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:50"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:53"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:54"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:54"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:55"}
+{"level":"http","message":"Method: GET en /api/sessions/current - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:56"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:58"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:20:59"}
+{"level":"http","message":"Method: GET en /mongo - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:00"}
+{"level":"warn","message":"vista de productos"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:02"}
+{"level":"http","message":"Method: GET en /www.google.com - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:02"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:03"}
+{"level":"http","message":"Method: POST en /cartsMongo/6580e92a13d19f536ddd3b5d/products/64e3e676f95ea0c33397d2ce - Params: {}\n   -Queries : {} - Body : {\"quantity\":\"4\"} -\n    11:21:07"}
+{"level":"http","message":"Method: GET en /cartsMongo/6580e92a13d19f536ddd3b5d - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:11"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:12"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    11:21:13"}
