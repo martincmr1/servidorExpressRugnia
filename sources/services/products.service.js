@@ -4,8 +4,8 @@ const GET_PRODUCTS_PAGES = () => {
   return Products.countDocuments();
 };
 
-const GET_PRODUCTS = () => {
-  return Products.find();
+const GET_PRODUCTS = (filter) => {
+  return Products.find(filter);
 };
 
 const GET_PRODUCTS_BY_ID = (productId) => {

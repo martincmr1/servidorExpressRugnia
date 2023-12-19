@@ -10,21 +10,25 @@ const mockProductscontroller = require("../controllers/mockProducts.controller")
 const usersController = require("../controllers/users.controller")
 const authController = require("../auth/controller.auth");
 const templateController = require("../templates/controller.template");
-const {
-  protectedRouteProducts,
-} = require("../middlewares/protected-route.middleware");
+
+
+//const {
+//  protectedRouteProducts,
+//} = require("../middlewares/protected-route.middleware");
+
+
+
 //const { authToken } = require("../utils/jwt.util");
 
 const router = (app) => {
   app.use("/api/products", productsController);
   app.use("/api/carts", cartsController);
   app.use("/realtimeproducts", realTimeProductsController);
-  app.use("/mongo", protectedRouteProducts, mongoProductsController);
-  app.use("/cartsMongo", cartsControllerMongo);
+  app.use("/mongo", mongoProductsController);
+  app.use("/cartsMongo",cartsControllerMongo);
   app.use("/chat", chatControllerMongo);
   app.use("/mockUsers",mockUserscontroller);
   app.use("/mockingproducts",mockProductscontroller);
-
   app.use("/api/users",usersController);
 
 

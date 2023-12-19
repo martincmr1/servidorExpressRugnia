@@ -1,10 +1,13 @@
 const passport = require("passport");
 const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
-const Users = require("../Dao/models/users.model");
+//const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const transport = require("../utils/nodemailer.util");
 const { UserMail } = require(".");
+const UserService = require('../services/users.service')
+const CartService = require('../services/carts.service')
+
 require("dotenv").config();
 
 const LocalStrategy = local.Strategy;
@@ -18,10 +21,38 @@ const initializePassport = () => {
         const { first_name, last_name, email, role } = req.body;
         const age = parseInt(req.body.age, 10);
         try {
-          const user = await Users.findOne({ email: username });
+         
+         const user = await UserService.GET_ONE_USER({ email: username })
+         
+        //  const user = await Users.findOne({ email: username });
           if (user) {
             return done(null, false);
           }
+     
+    
+          const id = Date.now();
+          const products = [];
+          const newCart = {  products,id };
+           const cart = await CartService.CREATE_CART(newCart)
+ 
+           const userInfo = {
+             first_name,
+             last_name,
+             email,
+             age,
+             role,
+             password: getHashedPassword(password),
+             cart: cart// Usar la ID del carrito creado
+           };
+    
+    
+    
+    
+    
+          /*
+     
+     
+     
           const userInfo = {
             first_name,
             last_name,
@@ -30,7 +61,7 @@ const initializePassport = () => {
             role,
             password: getHashedPassword(password),
           };
-
+*/
           try {
             await transport.sendMail({
               from: UserMail,
@@ -53,7 +84,8 @@ const initializePassport = () => {
             console.log(error);
           }
 
-          const newUser = await Users.create(userInfo);
+       const newUser = await UserService.CREATE_USER(userInfo)
+       //   const newUser = await Users.create(userInfo);
 
           done(null, newUser);
         } catch (error) {
@@ -69,7 +101,10 @@ const initializePassport = () => {
       { usernameField: "email" },
       async (username, password, done) => {
         try {
-          const user = await Users.findOne({ email: username });
+       
+       const user = await UserService.GET_ONE_USER({ email: username })
+       
+      //    const user = await Users.findOne({ email: username });
           if (!user) {
             console.log("El usuario no existe");
             return done(null, false);
@@ -110,7 +145,12 @@ const initializePassport = () => {
               email: profile._json.email,
               password: "",
             };
-            const newUser = await Users.create(userInfo);
+
+
+const newUser = await UserService.CREATE_USER(userInfo)
+
+
+        //    const newUser = await Users.create(userInfo);
             return done(null, newUser);
           }
         } catch (error) {
@@ -125,7 +165,10 @@ const initializePassport = () => {
   });
 
   passport.deserializeUser(async (id, done) => {
-    const user = await Users.findById(id);
+
+const user = await UserService.GET_USER_BY_ID(id)
+
+//    const user = await Users.findById(id);
     done(null, user);
   });
 };

@@ -1,18 +1,20 @@
-const { GET_PRODUCTS, GET_PRODUCTS_PAGES, GET_PRODUCTS_BY_ID, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } = require("../services/products.service");
-const Products = require("./models/product.model");
+const ProductService = require("../services/products.service");
+
+const UserService = require("../services/users.service");
 
 class ProductManagerMongo {
   async getProducts(req, res) {
     const { limit = 10, page = 1, sort, query } = req.query;
 
     try {
-      const user = req.session.user
+      const userMail = req.session.user
         ? {
             name: req.session.user.name,
             email: req.session.user.email,
             role: req.session.user.role,
           }
         : null;
+
       const pageAsNumber = parseInt(page, 10);
 
       let filter = {};
@@ -26,15 +28,18 @@ class ProductManagerMongo {
       } else if (sort === "desc") {
         sortOption = { price: -1 };
       }
-      const products = await GET_PRODUCTS(filter)
-    //  const products = await Products.find(filter)
+
+      try {
+      } catch (error) {}
+
+      const products = await ProductService.GET_PRODUCTS(filter)
+
         .sort(sortOption)
         .skip((pageAsNumber - 1) * limit)
         .limit(Number(limit))
         .lean();
+      const totalProducts = await ProductService.GET_PRODUCTS_PAGES(filter);
 
-     // const totalProducts = await Products.countDocuments(filter);
-      const totalProducts = await GET_PRODUCTS_PAGES(filter)
       const totalPages = Math.ceil(totalProducts / limit);
       const hasPrevPage = pageAsNumber > 1;
       const hasNextPage = pageAsNumber < totalPages;
@@ -63,9 +68,24 @@ class ProductManagerMongo {
           sort || ""
         }&query=${query || ""}`;
       }
-      req.logger.warn('vista de productos')
+
+      let user = null;
+      if (userMail) {
+        const findUser = await UserService.GET_ONE_USER({
+          email: userMail.email,
+        });
+
+        user = {
+          name: findUser.first_name,
+          lastName: findUser.last_name,
+          email: findUser.email,
+          cart: findUser.cart._id,
+        };
+      }
+
+      req.logger.warn("vista de productos");
       res.status(200).render("products", {
-        payload:products,
+        payload: products,
         products: response.payload,
         hasNextPage,
         nextLink: response.nextLink,
@@ -81,8 +101,9 @@ class ProductManagerMongo {
   async getProductById(req, res) {
     try {
       const { pid } = req.params;
-      const product = await GET_PRODUCTS_BY_ID(pid)
-      //     const product = await Products.findById(pid);
+
+      const product = await ProductService.GET_PRODUCTS_BY_ID(pid);
+
       if (product) {
         res.status(200).json(product);
       } else {
@@ -106,17 +127,18 @@ class ProductManagerMongo {
         status,
       } = req.body;
       if (
-        typeof title !== 'string' ||
-        typeof description !== 'string' ||
-        typeof code !== 'string' ||
-        typeof price !== 'number' ||
-        typeof stock !== 'number' ||
-        typeof title !== 'string' ||
-        typeof status !== 'string' 
+        typeof title !== "string" ||
+        typeof description !== "string" ||
+        typeof code !== "string" ||
+        typeof price !== "number" ||
+        typeof stock !== "number" ||
+        typeof title !== "string" ||
+        typeof status !== "string"
       ) {
-        return res
-          .status(400)
-          .json({ message: "Todos los campos son obligatorios o no tienen el formato adecuado" });
+        return res.status(400).json({
+          message:
+            "Todos los campos son obligatorios o no tienen el formato adecuado",
+        });
       }
       const thumbnailsArray = thumbnails ? thumbnails.split(",") : [];
       const newProduct = {
@@ -129,7 +151,9 @@ class ProductManagerMongo {
         category,
         thumbnails: thumbnailsArray,
       };
-      const createdProduct = await CREATE_PRODUCT(newProduct);
+
+      const createdProduct = await ProductService.CREATE_PRODUCT(newProduct);
+
       res.status(201).json({
         message: `Producto ID: ${createdProduct._id} agregado exitosamente`,
         createdProduct,
@@ -167,15 +191,17 @@ class ProductManagerMongo {
           .json({ message: "Todos los campos son obligatorios" });
       }
       const updatedFields = req.body;
-      const updatedProduct = await UPDATE_PRODUCT(
+
+      const updatedProduct = await ProductService.UPDATE_PRODUCT(
         _id,
         updatedFields,
         { new: true }
       );
+
       if (updatedProduct) {
         res.status(200).json({
           message: "Producto actualizado correctamente",
-          payload:updatedProduct,
+          payload: updatedProduct,
           updatedProduct,
         });
       } else {
@@ -185,19 +211,20 @@ class ProductManagerMongo {
       res.status(500).json({ message: "error en el servidor" });
     }
   }
-  async  deleteProduct(req, res) {
+  async deleteProduct(req, res) {
     try {
       const id = req.params.pid;
-      const deletedProduct = await DELETE_PRODUCT(id);
-      
+
+      const deletedProduct = await ProductService.DELETE_PRODUCT(id);
       if (deletedProduct) {
-        res.status(200).json({ message: `Producto ID ${id} eliminado exitosamente` });
+        res
+          .status(200)
+          .json({ message: `Producto ID ${id} eliminado exitosamente` });
       } else {
         res.status(404).json({ message: "El ID no es válido" });
       }
     } catch (error) {
       res.status(500).json({ message: "Ha ocurrido un error en el servidor" });
-  
     }
   }
 }

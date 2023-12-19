@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const Users = require("../Dao/models/users.model");
+//const Users = require("../Dao/models/users.model");
+const UsersService = require('../services/users.service')
 
 const router = Router();
 
@@ -16,18 +17,26 @@ router.get("/api/sessions/current", (req, res) => {
     lastname: req.user.last_name,
     email: req.session.user.email,
     role: req.user.role,
-  };
 
-  return res.render("profile", user);
+    
+  };
+  
+  
+
+  return res.render("profile", user,);
 });
 
 router.get("/logout", async (req, res) => {
   const userId = req.user._id;
 
   try {
-    const user = await Users.findByIdAndUpdate(userId, {
-      last_connection: new Date(),
-    });
+
+   const user = await UsersService.UPDATE_USER(userId, {
+       last_connection: new Date(),
+      })
+  // const user = await Users.findByIdAndUpdate(userId, {
+ ////    last_connection: new Date(),
+ //  });
 
     if (!user) {
       console.error(
@@ -53,4 +62,9 @@ router.get("/logout", async (req, res) => {
   });
 });
 
+
+
+
 module.exports = router;
+
+

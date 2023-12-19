@@ -1,6 +1,7 @@
-const Carts = require("./models/carts.model");
-const Products = require("./models/product.model");
-const Users = require("./models/users.model");
+const CartsService = require("../services/carts.service");
+const ProductsService = require("../services/products.service");
+
+const UserService = require("../services/users.service");
 
 class CartsManagerFs {
   async createCart(req, res) {
@@ -11,7 +12,9 @@ class CartsManagerFs {
         id,
         products,
       };
-      const createdCart = await Carts.create(newCart);
+
+      const createdCart = await CartsService.CREATE_CART(newCart);
+
       res.status(200).json({
         message: "Carrito agregado correctamente",
         newCart: createdCart,
@@ -22,47 +25,62 @@ class CartsManagerFs {
   }
 
   async getCartbyId(req, res) {
+    const { cid } = req.params;
+
     try {
-      const { cid } = req.params;
+      const userMail = req.session.user
+        ? {
+            name: req.session.user.name,
+            email: req.session.user.email,
+            role: req.session.user.role,
+          }
+        : null;
 
-      let user = null;
-      if (req.session && req.session.user && req.session.user.email) {
-        const userEmail = req.session.user.email;
-        const foundUser = await Users.findOne({ email: userEmail });
+      const findUser = await UserService.GET_ONE_USER({
+        email: userMail.email,
+      });
 
-        if (foundUser) {
-          user = {
-            name: foundUser.first_name,
-            email: foundUser.email,
-            role: foundUser.role,
-            age: foundUser.age,
-            cart: foundUser.cart._id,
-          };
-        }
+      const user = {
+        name: findUser.first_name,
+        lastName: findUser.last_name,
+        email: findUser.email,
+        cart: findUser.cart._id,
+      };
+
+      const cart = await CartsService.GET_CART_BY_ID(cid)
+        .lean()
+        .populate("products._id");
+
+      if (!cart) {
+        return res
+          .status(404)
+          .json({ message: "El carrito no fue encontrado" });
       }
 
-      const cart = await Carts.findById(cid).lean().populate("products._id");
       const productIds = cart.products.map((product) => product._id);
 
-      const products = await Products.find({ _id: { $in: productIds } });
+      const products = await ProductsService.GET_PRODUCTS({
+        _id: { $in: productIds },
+      });
 
       res.render("cartId", { cart: cart, products: products, user: user });
     } catch (error) {
-      res.status(500).json({ error: "Error en el servidor" });
+      res.status(500).json({ message: "Error al obtener el carrito" });
     }
   }
+
   async addProductToCart(req, res) {
     try {
       const { cid, pid } = req.params;
       const { quantity } = req.body;
 
-      const product = await Products.findById(pid);
+      const product = await ProductsService.GET_PRODUCTS_BY_ID(pid);
 
       if (!product) {
         return res.status(404).json({ message: "Producto no encontrado" });
       }
 
-      const cart = await Carts.findById(cid);
+      const cart = await CartsService.GET_CART_BY_ID(cid);
 
       const existingProductIndex = cart.products.findIndex(
         (cartProduct) => cartProduct._id.toString() === pid
@@ -94,12 +112,12 @@ class CartsManagerFs {
       const cartId = cid;
       const productId = pid;
 
-      const result = await Carts.updateOne(
+      const result = await CartsService.UPDATE_CART(
         { _id: cartId },
         { $pull: { products: { _id: productId } } }
       );
 
-      if (result.nModified === 0) {
+      if (!result) {
         return res
           .status(400)
           .json({ message: "El producto no se encontró en el carrito" });
@@ -126,7 +144,7 @@ class CartsManagerFs {
         return res.status(400).json({ error: "Los datos no son válidos" });
       }
 
-      const cart = await Carts.findOneAndUpdate(
+      const cart = await CartsService.UPDATE_CART(
         { _id: cartId },
         { products },
         { new: true }
@@ -159,7 +177,8 @@ class CartsManagerFs {
         return res.status(400).json({ error: "La cantidad no es válida" });
       }
 
-      const cart = await Carts.findOne({ _id: cartId });
+      const cart = await CartsService.GET_ONE_CART({ _id: cartId });
+
       console.log(cart);
       if (!cart) {
         return res
@@ -196,7 +215,7 @@ class CartsManagerFs {
 
       const cartId = cid;
 
-      const cart = await Carts.findOne({ _id: cartId });
+      const cart = await CartsService.GET_ONE_CART({ _id: cartId });
 
       if (!cart) {
         return res
