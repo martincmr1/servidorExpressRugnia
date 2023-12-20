@@ -1,35 +1,24 @@
-const Products = require("../models/product.model")
+const Products = require("../models/product.model");
 
-
-class ProductsDao {
-    getAll(filter){ 
-     return Products.find(filter)
-        
-        
-    }
-    getAllPages(){
-        return Products.countDocuments();
-    }
-    getById(productId){
-        return Products.findById(productId);
-    }
-    create(newProductData){
-        return Products.create(newProductData);
-    }
-    updateById(productId, updatedFields){
-        return Products.findByIdAndUpdate(productId, updatedFields, { new: true });
-    }
-    deleteById(productId){
-        return Products.findByIdAndDelete(productId);
-    }
+class ProductsMongoDao {
+  getAll(filter) {
+    return Products.find(filter);
+  }
+  getAllPages() {
+    return Products.countDocuments();
+  }
+  getById(productId) {
+    return Products.findById(productId);
+  }
+  create(newProductData) {
+    return Products.create(newProductData);
+  }
+  updateById(productId, updatedFields) {
+    return Products.findByIdAndUpdate(productId, updatedFields, { new: true });
+  }
+  deleteById(productId) {
+    return Products.findByIdAndDelete(productId);
+  }
 }
 
-
-module.exports=ProductsDao
-
-
-
-
-
-
-
+module.exports = ProductsMongoDao;

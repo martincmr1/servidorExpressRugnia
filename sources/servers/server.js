@@ -4,7 +4,7 @@ const handlebars = require("express-handlebars");
 const router = require("../router");
 const connectMongo = require("../db");
 
-
+require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -16,11 +16,7 @@ const errorHandler = require("../middlewares/errors");
 const logger = require("../middlewares/logger.middleware");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
-
-
-require("dotenv").config();
-
-
+const { MONGO_URL, SECRET } = require("../config");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,15 +36,13 @@ app.use(logger);
 app.use(
   session({
     store: MongoStore.create({
-   
-   mongoUrl:'mongodb+srv://martincmr1:admin@cluster0.0spsbev.mongodb.net/?retryWrites=true&w=majority',
-   
-      // mongoUrl: process.env.MONGO_URL,
+      mongoUrl: MONGO_URL,
+
       mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
       ttl: 3600,
     }),
-    secret:'codersecret',
-    //secret: process.env.SECRET,
+
+    secret: SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -75,8 +69,5 @@ app.use("/documentation", swaggerUi.serve, swaggerUi.setup(spec));
 connectMongo();
 
 router(app);
-
-
-
 
 module.exports = app;

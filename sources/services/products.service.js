@@ -1,6 +1,6 @@
-const ProductsDao = require("../Dao/mongo/mongo.products.dao");
+const ProductsMongoDao = require("../Dao/mongo/mongo.products.dao");
 
-const productsDao = new ProductsDao();
+const productsDao = new ProductsMongoDao();
 
 const GET_PRODUCTS_PAGES = () => {
   return productsDao.getAllPages();
@@ -34,5 +34,4 @@ module.exports = {
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
 };
-
 

@@ -1,14 +1,15 @@
+require("dotenv").config();
 const passport = require("passport");
 const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
 //const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const transport = require("../utils/nodemailer.util");
-const { UserMail } = require(".");
+const { USER_MAIL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_CALLBACK_URL } = require(".");
 const UserService = require('../services/users.service')
 const CartService = require('../services/carts.service')
 
-require("dotenv").config();
+
 
 const LocalStrategy = local.Strategy;
 
@@ -64,7 +65,7 @@ const initializePassport = () => {
 */
           try {
             await transport.sendMail({
-              from: UserMail,
+              from: USER_MAIL,
               to: userInfo.email,
               subject: `bienvenido, ${userInfo.first_name}`,
               html: `
@@ -131,13 +132,13 @@ const initializePassport = () => {
     "github",
     new GithubStrategy(
       {
-        clientID: process.env.GITHUB_CLIENT_ID,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: process.env.GITHUB_CALLBACK_URL,
+        clientID: GITHUB_CLIENT_ID, 
+        clientSecret: GITHUB_CLIENT_SECRET,
+        callbackURL: GITHUB_CALLBACK_URL,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          const user = await Users.findOne({ email: profile._json.email });
+          const user = await UserService.GET_ONE_USER({ email: profile._json.email });
           if (!user) {
             const userInfo = {
               name: profile._json.name,
