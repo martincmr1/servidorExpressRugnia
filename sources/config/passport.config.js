@@ -2,14 +2,17 @@ require("dotenv").config();
 const passport = require("passport");
 const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
-//const Users = require("../Dao/models/users.model");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const transport = require("../utils/nodemailer.util");
-const { USER_MAIL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_CALLBACK_URL } = require(".");
-const UserService = require('../services/users.service')
-const CartService = require('../services/carts.service')
-
-
+const {
+  USER_MAIL,
+  GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET,
+  GITHUB_CALLBACK_URL,
+} = require(".");
+const UserService = require("../services/users.service");
+const CartService = require("../services/carts.service");
+const UserDto = require("../DTO/user.dto");
 
 const LocalStrategy = local.Strategy;
 
@@ -19,50 +22,31 @@ const initializePassport = () => {
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, username, password, done) => {
-        const { first_name, last_name, email, role } = req.body;
         const age = parseInt(req.body.age, 10);
         try {
-         
-         const user = await UserService.GET_ONE_USER({ email: username })
-         
-        //  const user = await Users.findOne({ email: username });
+          const user = await UserService.GET_ONE_USER({ email: username });
+
           if (user) {
             return done(null, false);
           }
-     
-    
+
           const id = Date.now();
           const products = [];
-          const newCart = {  products,id };
-           const cart = await CartService.CREATE_CART(newCart)
- 
-           const userInfo = {
-             first_name,
-             last_name,
-             email,
-             age,
-             role,
-             password: getHashedPassword(password),
-             cart: cart// Usar la ID del carrito creado
-           };
-    
-    
-    
-    
-    
-          /*
-     
-     
-     
+          const newCart = { products, id };
+          const cart = await CartService.CREATE_CART(newCart);
+
+          const NewUser = new UserDto(req.body);
+
           const userInfo = {
-            first_name,
-            last_name,
-            email,
+            first_name: NewUser.first_name,
+            last_name: NewUser.last_Name,
+            email: NewUser.email,
             age,
-            role,
+            role: NewUser.role,
             password: getHashedPassword(password),
+            cart: cart, 
           };
-*/
+
           try {
             await transport.sendMail({
               from: USER_MAIL,
@@ -85,8 +69,7 @@ const initializePassport = () => {
             console.log(error);
           }
 
-       const newUser = await UserService.CREATE_USER(userInfo)
-       //   const newUser = await Users.create(userInfo);
+          const newUser = await UserService.CREATE_USER(userInfo);
 
           done(null, newUser);
         } catch (error) {
@@ -102,10 +85,8 @@ const initializePassport = () => {
       { usernameField: "email" },
       async (username, password, done) => {
         try {
-       
-       const user = await UserService.GET_ONE_USER({ email: username })
-       
-      //    const user = await Users.findOne({ email: username });
+          const user = await UserService.GET_ONE_USER({ email: username });
+
           if (!user) {
             console.log("El usuario no existe");
             return done(null, false);
@@ -116,11 +97,8 @@ const initializePassport = () => {
             return done(null, false);
           }
 
-
-         
-          // Actualiza last_connection al iniciar sesión
-         user.last_connection = new Date();
-          await user.save(); // Guarda el cambio en last_connection
+          user.last_connection = new Date();
+          await user.save(); //
 
           return done(null, user);
         } catch (error) {
@@ -134,13 +112,15 @@ const initializePassport = () => {
     "github",
     new GithubStrategy(
       {
-        clientID: GITHUB_CLIENT_ID, 
+        clientID: GITHUB_CLIENT_ID,
         clientSecret: GITHUB_CLIENT_SECRET,
         callbackURL: GITHUB_CALLBACK_URL,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          const user = await UserService.GET_ONE_USER({ email: profile._json.email });
+          const user = await UserService.GET_ONE_USER({
+            email: profile._json.email,
+          });
           if (!user) {
             const userInfo = {
               name: profile._json.name,
@@ -149,11 +129,8 @@ const initializePassport = () => {
               password: "",
             };
 
+            const newUser = await UserService.CREATE_USER(userInfo);
 
-const newUser = await UserService.CREATE_USER(userInfo)
-
-
-        //    const newUser = await Users.create(userInfo);
             return done(null, newUser);
           }
         } catch (error) {
@@ -168,10 +145,8 @@ const newUser = await UserService.CREATE_USER(userInfo)
   });
 
   passport.deserializeUser(async (id, done) => {
+    const user = await UserService.GET_USER_BY_ID(id);
 
-const user = await UserService.GET_USER_BY_ID(id)
-
-//    const user = await Users.findById(id);
     done(null, user);
   });
 };
