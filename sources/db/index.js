@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const { CONECT_TO_MONGO } = require("../config");
 
 const connectMongo = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://martincmr1:admin@cluster0.0spsbev.mongodb.net/ecommerce?retryWrites=true&w=majority"
+      CONECT_TO_MONGO
     );
     console.log("db is connected");
   } catch (error) {

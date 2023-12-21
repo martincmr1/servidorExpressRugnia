@@ -16,6 +16,10 @@ const CREATE_USER = (newUserData) => {
   return Users.create(newUserData);
 };
 
+const UPDATE = (userId, userData) => {
+  return Users.findOneAndUpdate(userId, userData, { new: true });
+};
+
 const UPDATE_USER = (userId, userData) => {
   return Users.findByIdAndUpdate(userId, userData, { new: true });
 };
@@ -33,6 +37,7 @@ module.exports = {
   GET_USER_BY_ID,
   GET_ONE_USER,
   CREATE_USER,
+  UPDATE,
   UPDATE_USER,
   DELETE_USER,
   DELETE_ALL_USERS

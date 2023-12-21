@@ -4,7 +4,7 @@ const passport = require("passport");
 const winstonlogger = require("../utils/winston/logger.winston");
 //const Users = require("../Dao/models/users.model");
 const transport = require("../utils/nodemailer.util");
-const { UserMail } = require("../config");
+const { USER_MAIL } = require("../config");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const UserService = require('../services/users.service')
 const router = Router();
@@ -90,7 +90,7 @@ router.post("/recoverypassword", async (req, res) => {
       const currentDate = new Date().getTime();
       try {
         await transport.sendMail({
-          from: UserMail,
+          from: USER_MAIL,
           to: user.email,
           subject: `Mi Tiend@,hola ${user.first_name}`,
           html: `

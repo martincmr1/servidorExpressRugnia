@@ -8,7 +8,8 @@ module.exports = {
    MONGO_URL:process.env.MONGO_URL,
   SECRET:process.env.SECRET,
    USER_MAIL:process.env.USER_MAIL,
-   PASSWORD_MAIL:process.env.PASSWORD_MAIL
+   PASSWORD_MAIL:process.env.PASSWORD_MAIL,
+   CONECT_TO_MONGO:process.env.CONECT_TO_MONGO
 }
 
 

@@ -116,6 +116,8 @@ const initializePassport = () => {
             return done(null, false);
           }
 
+
+         
           // Actualiza last_connection al iniciar sesión
          user.last_connection = new Date();
           await user.save(); // Guarda el cambio en last_connection
