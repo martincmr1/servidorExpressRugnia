@@ -13,7 +13,9 @@ const UserService = require("../services/users.service");
 const CartService = require("../services/carts.service");
 const UserDto = require("../DTO/user.dto");
 
-const MessageAdapter = require("../adapter/factory");
+
+//const MessageAdapter = require("../adapter/factory");
+const messageRepository = require("../repositories");
 
 const LocalStrategy = local.Strategy;
 
@@ -46,7 +48,9 @@ const initializePassport = () => {
             cart: cart,
           };
 
-          const messageAdapter = new MessageAdapter();
+      //    const messageAdapter = new MessageAdapter();
+
+
 
           const messageInfo = {
             name: userInfo.first_name,
@@ -55,7 +59,9 @@ const initializePassport = () => {
             number: userInfo.number,
           };
 
-          messageAdapter.sendMessage(messageInfo);
+       //   messageAdapter.sendMessage(messageInfo);
+messageRepository.sendMessage(messageInfo)
+
 
           const newUser = await UserService.CREATE_USER(userInfo);
 
