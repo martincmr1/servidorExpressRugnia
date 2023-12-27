@@ -7,7 +7,7 @@
     "test": "mocha",
     "test:watch": "nodemon --watch test --exec \"npm run test\"",
     "start:dev": "cross-env NODE_ENV=dev nodemon sources/index.js",
-    "start:prod": "cross-env NODE_ENV=prod node index.js"
+    "start:prod": "cross-env NODE_ENV=prod nodemon sources/index.js"
   },
   "repository": {
     "type": "git",

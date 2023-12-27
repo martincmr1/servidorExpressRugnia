@@ -2197,3 +2197,10 @@
 {"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    00:28:10"}
 {"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    00:28:10"}
 {"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    00:28:45"}
+{"level":"http","message":"Method: GET en /register - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:36"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:36"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:37"}
+{"level":"http","message":"Method: POST en /auth/register - Params: {}\n   -Queries : {} - Body : {\"first_name\":\"Carlos\",\"last_name\":\"Rugnia\",\"age\":\"43\",\"number\":\"+541126572339\",\"email\":\"martinybelen1980@gmail.com\",\"password\":\"1234\",\"role\":\"admin\"} -\n    00:29:54"}
+{"level":"http","message":"Method: GET en /login - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:56"}
+{"level":"http","message":"Method: GET en /css/.css - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:56"}
+{"level":"http","message":"Method: GET en /favicon.ico - Params: {}\n   -Queries : {} - Body : {} -\n    00:29:57"}
