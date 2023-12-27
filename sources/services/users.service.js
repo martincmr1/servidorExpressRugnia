@@ -1,4 +1,5 @@
 const Users = require("../Dao/models/users.model");
+const messageRepository = require("../repositories");
 
 const GET_USERS = () => {
   return Users.find();
@@ -12,8 +13,23 @@ const GET_USER_BY_ID = (userId) => {
   return Users.findById(userId);
 };
 
-const CREATE_USER = (newUserData) => {
-  return Users.create(newUserData);
+const CREATE_USER = async (newUserData) => {
+  try {
+    const newUser = await Users.create(newUserData);
+
+    const messageInfo = {
+      first_name: newUser.first_name,
+      last_name: newUser.last_name,
+      email: newUser.email,
+      number: newUser.number,
+    };
+
+    messageRepository.sendMessage(messageInfo);
+
+    return newUser;
+  } catch (error) {
+    throw new Error(`Error al crear el usuario: ${error}`);
+  }
 };
 
 const UPDATE = (userId, userData) => {
@@ -40,5 +56,5 @@ module.exports = {
   UPDATE,
   UPDATE_USER,
   DELETE_USER,
-  DELETE_ALL_USERS
+  DELETE_ALL_USERS,
 };

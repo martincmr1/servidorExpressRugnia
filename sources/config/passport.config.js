@@ -13,10 +13,6 @@ const UserService = require("../services/users.service");
 const CartService = require("../services/carts.service");
 const UserDto = require("../DTO/user.dto");
 
-
-//const MessageAdapter = require("../adapter/factory");
-const messageRepository = require("../repositories");
-
 const LocalStrategy = local.Strategy;
 
 const initializePassport = () => {
@@ -47,21 +43,6 @@ const initializePassport = () => {
             password: getHashedPassword(password),
             cart: cart,
           };
-
-      //    const messageAdapter = new MessageAdapter();
-
-
-
-          const messageInfo = {
-            name: userInfo.first_name,
-            lastname: userInfo.last_Name,
-            email: userInfo.email,
-            number: userInfo.number,
-          };
-
-       //   messageAdapter.sendMessage(messageInfo);
-messageRepository.sendMessage(messageInfo)
-
 
           const newUser = await UserService.CREATE_USER(userInfo);
 

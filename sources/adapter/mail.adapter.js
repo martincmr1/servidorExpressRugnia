@@ -6,10 +6,10 @@ class MailAdapter {
     await transport.sendMail({
       from: USER_MAIL,
       to: messageInfo.email,
-      subject: `bienvenido, ${messageInfo.name}`,
+      subject: `bienvenido, ${messageInfo.first_name}`,
       html: `
          <div>
-         <h1> hola ${messageInfo.lastname} Gracias por registrarte</h1>
+         <h1> hola ${messageInfo.last_name} Gracias por registrarte</h1>
          <img src
          </div> `,
       attachments: [
