@@ -13,9 +13,11 @@ const userSchema = new mongoose.Schema({
   email: String,
   age: Number,
   password: String,
+  number:String,
   cart: { type: mongoose.Schema.Types.ObjectId, ref: "cart" },
   role: { type: String, enum: ["user", "premium", "admin"], default: "user" },
   documents: [documentSchema],
+  createdAt:String,
   last_connection: Date,
 });
 

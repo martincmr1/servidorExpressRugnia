@@ -2,11 +2,11 @@ const { Router } = require("express");
 
 const passport = require("passport");
 const winstonlogger = require("../utils/winston/logger.winston");
-//const Users = require("../Dao/models/users.model");
+
 const transport = require("../utils/nodemailer.util");
 const { USER_MAIL } = require("../config");
 const { getHashedPassword, comparePassword } = require("../utils/password");
-const UserService = require('../services/users.service')
+const UserService = require("../services/users.service");
 const router = Router();
 
 router.post(
@@ -44,11 +44,9 @@ router.post(
         role: "user",
       };
 
- 
-
-
-
-      res.status(200).json({ status: "success", payload: "Nueva sesión iniciada" });
+      res
+        .status(200)
+        .json({ status: "success", payload: "Nueva sesión iniciada" });
     } catch (error) {
       console.log(error);
       res.status(500).json({ status: "error", error: "internal server error" });
@@ -79,10 +77,8 @@ router.post("/recoverypassword", async (req, res) => {
   const { email } = req.body;
 
   try {
-  
-    const user = await UserService.GET_ONE_USER({ email: email })
-  
-    //  const user = await Users.findOne({ email: email });
+    const user = await UserService.GET_ONE_USER({ email: email });
+
     if (!user) {
       console.log("El email no está registrado");
       res.status(404).json({ error: "El email no está registrado" });
@@ -136,9 +132,7 @@ router.post("/newpass", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await UserService.GET_ONE_USER({email})
-
-  //  const user = await Users.findOne({ email });
+    const user = await UserService.GET_ONE_USER({ email });
 
     if (!user) {
       console.log("El usuario no existe");

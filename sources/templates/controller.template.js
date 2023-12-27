@@ -29,9 +29,7 @@ router.get("/logout", async (req, res) => {
     const user = await UsersService.UPDATE_USER(userId, {
       last_connection: new Date(),
     });
-    // const user = await Users.findByIdAndUpdate(userId, {
-    ////    last_connection: new Date(),
-    //  });
+   
 
     if (!user) {
       console.error(

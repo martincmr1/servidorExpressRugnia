@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "test:watch": "nodemon --watch test --exec \"npm run test\"",
-    "start": "node index.js"
+    "start:dev": "cross-env NODE_ENV=dev nodemon sources/index.js",
+    "start:prod": "cross-env NODE_ENV=prod node index.js"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "sweetalert2": "^11.7.22",
-    "twilio": "^4.18.1",
+    "twilio": "^4.20.0",
     "uuid": "^9.0.1",
     "winston": "^3.11.0"
   },

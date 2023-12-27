@@ -3,9 +3,8 @@ const passport = require("passport");
 const local = require("passport-local");
 const GithubStrategy = require("passport-github2");
 const { getHashedPassword, comparePassword } = require("../utils/password");
-const transport = require("../utils/nodemailer.util");
+
 const {
-  USER_MAIL,
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
   GITHUB_CALLBACK_URL,
@@ -13,6 +12,8 @@ const {
 const UserService = require("../services/users.service");
 const CartService = require("../services/carts.service");
 const UserDto = require("../DTO/user.dto");
+
+const MessageAdapter = require("../adapter/factory");
 
 const LocalStrategy = local.Strategy;
 
@@ -38,36 +39,23 @@ const initializePassport = () => {
           const NewUser = new UserDto(req.body);
 
           const userInfo = {
-            first_name: NewUser.first_name,
-            last_name: NewUser.last_Name,
-            email: NewUser.email,
+            ...NewUser,
             age,
-            role: NewUser.role,
+            createdAt: NewUser.createdAt,
             password: getHashedPassword(password),
-            cart: cart, 
+            cart: cart,
           };
 
-          try {
-            await transport.sendMail({
-              from: USER_MAIL,
-              to: userInfo.email,
-              subject: `bienvenido, ${userInfo.first_name}`,
-              html: `
-           <div>
-           <h1> hola ${userInfo.last_name} Gracias por registrarte</h1>
-           <img src
-           </div> `,
-              attachments: [
-                {
-                  filename: "gato.jpg",
-                  path: process.cwd() + "/sources/images/gato.jpg",
-                  cid: "gatito",
-                },
-              ],
-            });
-          } catch (error) {
-            console.log(error);
-          }
+          const messageAdapter = new MessageAdapter();
+
+          const messageInfo = {
+            name: userInfo.first_name,
+            lastname: userInfo.last_Name,
+            email: userInfo.email,
+            number: userInfo.number,
+          };
+
+          messageAdapter.sendMessage(messageInfo);
 
           const newUser = await UserService.CREATE_USER(userInfo);
 
@@ -98,7 +86,7 @@ const initializePassport = () => {
           }
 
           user.last_connection = new Date();
-          await user.save(); //
+          await user.save();
 
           return done(null, user);
         } catch (error) {
