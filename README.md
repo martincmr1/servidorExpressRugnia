@@ -25,6 +25,10 @@ npm run start:prod
 
 Puedes acceder al despliegue en producción a través de este [enlace](https://servidorexpressrugnia-production.up.railway.app/mongo).
 
+## Documentación
+
+Puedes acceder a la documentación de la API en este [enlace](https://servidorexpressrugnia-production.up.railway.app/mongo).
+
 ## Patrones de Diseño Utilizados
 
 - Servidor basado en capas (Services, Controllers, Managers).
