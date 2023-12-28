@@ -34,4 +34,3 @@ module.exports = {
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
 };
-

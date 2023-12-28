@@ -1,7 +1,6 @@
 const MessageRepository = require("./message.repository");
-const MessageAdapter = require('../adapter/factory')
+const MessageAdapter = require("../adapter/factory");
 
+const messageRepository = new MessageRepository(new MessageAdapter());
 
-const messageRepository= new MessageRepository(new MessageAdapter())
-
-module.exports=messageRepository
+module.exports = messageRepository;

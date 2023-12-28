@@ -7,6 +7,7 @@ const transport = require("../utils/nodemailer.util");
 const { USER_MAIL } = require("../config");
 const { getHashedPassword, comparePassword } = require("../utils/password");
 const UserService = require("../services/users.service");
+const { authToken } = require("../utils/jwt.util");
 const router = Router();
 
 router.post(
@@ -65,7 +66,8 @@ router.get(
   passport.authenticate("github", { failureRedirect: "/login" }),
   (req, res) => {
     req.session.user = req.user;
-    res.redirect("/profile");
+
+    res.redirect("/mongo");
   }
 );
 

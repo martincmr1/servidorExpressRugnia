@@ -1,6 +1,7 @@
 const { Router } = require("express");
-//const Users = require("../Dao/models/users.model");
+
 const UsersService = require("../services/users.service");
+const { authToken } = require("../utils/jwt.util");
 
 const router = Router();
 
@@ -11,7 +12,7 @@ router.get("/register", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("login");
 });
-router.get("/api/sessions/current", (req, res) => {
+router.get("/api/sessions/current", authToken, (req, res) => {
   const user = {
     name: req.user.first_name,
     lastname: req.user.last_name,
@@ -29,7 +30,6 @@ router.get("/logout", async (req, res) => {
     const user = await UsersService.UPDATE_USER(userId, {
       last_connection: new Date(),
     });
-   
 
     if (!user) {
       console.error(

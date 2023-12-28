@@ -12,6 +12,7 @@ const {
 const UserService = require("../services/users.service");
 const CartService = require("../services/carts.service");
 const UserDto = require("../DTO/user.dto");
+const { generateToken } = require("../utils/jwt.util");
 
 const LocalStrategy = local.Strategy;
 
@@ -33,6 +34,7 @@ const initializePassport = () => {
           const products = [];
           const newCart = { products, id };
           const cart = await CartService.CREATE_CART(newCart);
+          const token = generateToken(req.body.email);
 
           const NewUser = new UserDto(req.body);
 
@@ -42,6 +44,7 @@ const initializePassport = () => {
             createdAt: NewUser.createdAt,
             password: getHashedPassword(password),
             cart: cart,
+            token,
           };
 
           const newUser = await UserService.CREATE_USER(userInfo);
@@ -98,8 +101,8 @@ const initializePassport = () => {
           });
           if (!user) {
             const userInfo = {
-              name: profile._json.name,
-              lastname: "",
+              first_name: profile._json.name,
+              last_name: "",
               email: profile._json.email,
               password: "",
             };

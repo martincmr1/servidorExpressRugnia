@@ -1,18 +1,15 @@
-const { ENVIRONMENT } = require('../config');
+const { ENVIRONMENT } = require("../config");
 
-console.log(ENVIRONMENT)
+console.log(ENVIRONMENT);
 
 switch (ENVIRONMENT) {
-    case 'dev':
-        module.exports=require('./mail.adapter')
-    
-        break;
+  case "dev":
+    module.exports = require("./mail.adapter");
 
-        case 'prod':
-            module.exports= require('./sms.adapter')
-          
+    break;
 
-   
-        break;
+  case "prod":
+    module.exports = require("./sms.adapter");
+
+    break;
 }
-

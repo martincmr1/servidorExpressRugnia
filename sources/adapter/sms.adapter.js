@@ -1,7 +1,6 @@
 const { TWILIO_SMS_NUMBER } = require("../config");
 const client = require("../utils/twilio.util");
 
-
 class SmsAdapter {
   async sendMessage(messageInfo) {
     await client.messages.create({

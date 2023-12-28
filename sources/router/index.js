@@ -14,8 +14,6 @@ const {
   protectedRouteProducts,
 } = require("../middlewares/protected-route.middleware");
 
-//const { authToken } = require("../utils/jwt.util");
-
 const router = (app) => {
   app.use("/api/products", productsController);
   app.use("/api/carts", cartsController);
