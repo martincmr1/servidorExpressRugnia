@@ -27,7 +27,7 @@ Puedes acceder al despliegue en producción a través de este [enlace](https://s
 
 ## Documentación
 
-Puedes acceder a la documentación de la API en este [enlace](https://servidorexpressrugnia-production.up.railway.app/mongo).
+Puedes acceder a la documentación de la API en este [enlace](https://servidorexpressrugnia-production.up.railway.app/documentation).
 
 ## Patrones de Diseño Utilizados
 
